@@ -1,0 +1,138 @@
+[
+  {
+    "minStockByPresentation": [
+      {
+        "presentationId": "paq100",
+        "minimum": 2
+      }
+    ],
+    "barcode": "DEMO001",
+    "presentations": [
+      {
+        "units": 100,
+        "priceCents": 250,
+        "label": "Paquete de 100",
+        "id": "paq100"
+      }
+    ],
+    "brand": "DEMO",
+    "name": "Bolsas académicas",
+    "sourceNotes": [
+      "Datos ficticios para evaluación académica. No representan un negocio real."
+    ],
+    "id": "demo-bolsas",
+    "category": "Bolsas",
+    "stockByPresentation": {
+      "almacen": [
+        {
+          "quantity": 20,
+          "presentationId": "paq100"
+        },
+        {
+          "quantity": 0,
+          "presentationId": null
+        }
+      ],
+      "puesto": [
+        {
+          "quantity": 10,
+          "presentationId": "paq100"
+        },
+        {
+          "quantity": 0,
+          "presentationId": null
+        }
+      ]
+    },
+    "sku": "DEMO-001",
+    "active": true,
+    "stock": {
+      "almacen": 2000,
+      "puesto": 1000
+    }
+  },
+  {
+    "barcode": "DEMO002",
+    "presentations": [
+      {
+        "units": 50,
+        "priceCents": 800,
+        "label": "Paquete de 50",
+        "id": "paq50"
+      }
+    ],
+    "brand": "DEMO",
+    "name": "Vasos académicos",
+    "sourceNotes": [
+      "Datos ficticios para evaluación académica."
+    ],
+    "id": "demo-vasos",
+    "category": "Vasos",
+    "stockByPresentation": {
+      "almacen": [
+        {
+          "quantity": 10,
+          "presentationId": "paq50"
+        },
+        {
+          "quantity": 0,
+          "presentationId": null
+        }
+      ],
+      "puesto": [
+        {
+          "quantity": 15,
+          "presentationId": "paq50"
+        },
+        {
+          "quantity": 0,
+          "presentationId": null
+        }
+      ]
+    },
+    "sku": "DEMO-002",
+    "active": true,
+    "stock": {
+      "almacen": 500,
+      "puesto": 750
+    }
+  },
+  {
+    "barcode": "DEMO003",
+    "presentations": [
+      {
+        "units": 1,
+        "priceCents": 60,
+        "label": "Unidad",
+        "id": "unidad"
+      }
+    ],
+    "brand": "DEMO",
+    "name": "Platos académicos",
+    "sourceNotes": [
+      "Datos ficticios para evaluación académica."
+    ],
+    "id": "demo-platos",
+    "category": "Platos",
+    "stockByPresentation": {
+      "almacen": [
+        {
+          "quantity": 100,
+          "presentationId": null
+        }
+      ],
+      "puesto": [
+        {
+          "quantity": 50,
+          "presentationId": null
+        }
+      ]
+    },
+    "sku": "DEMO-003",
+    "active": true,
+    "stock": {
+      "almacen": 100,
+      "puesto": 50
+    }
+  }
+]

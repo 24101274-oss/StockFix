@@ -1,0 +1,19 @@
+import { useMemo, useState } from 'react';
+import { Building2, Plus, Search } from 'lucide-react';
+import type { Supplier, User } from '../../shared/types';
+import { Button } from '../components/ui/button';
+import { Card, CardContent } from '../components/ui/card';
+import { Input } from '../components/ui/input';
+import { documentLookupAvailability, useDocumentLookup } from '../lib/document-lookup';
+import SupplierEditor from '../components/management/SupplierEditor';
+import { actionClass, controlClass, EmptyState, Feedback, useResource } from '../components/management/common';
+
+export default function SuppliersPage({ user }: { user: User }) {
+  const suppliers = useResource<Supplier[]>('/suppliers', []);
+  const [search, setSearch] = useState('');
+  const [editor, setEditor] = useState(false);
+  const lookup = useDocumentLookup();
+  const filtered = useMemo(() => suppliers.data.filter((supplier) => `${supplier.ruc} ${supplier.name}`.toLowerCase().includes(search.trim().toLowerCase())), [suppliers.data, search]);
+  if (user.role !== 'admin') return <EmptyState title="Acceso reservado" detail="La administración de proveedores está disponible para el administrador." />;
+  return <div className="space-y-6"><div className="flex flex-wrap items-start justify-between gap-4"><div><h1 className="text-2xl font-semibold tracking-tight">Proveedores</h1><p className="mt-1 text-sm text-muted-foreground">Contactos y datos para registrar la entrada de mercadería.</p></div><Button className={actionClass} onClick={() => setEditor(true)}><Plus />Nuevo proveedor</Button></div><Card className="shadow-none"><CardContent className="flex items-start gap-3 p-4"><Building2 className="mt-0.5 size-5 shrink-0 text-primary" /><p className="text-sm leading-relaxed text-muted-foreground">{documentLookupAvailability(lookup.status, 'RUC')}</p></CardContent></Card><Card className="gap-0 overflow-hidden py-0 shadow-none"><CardContent className="p-0"><div className="border-b border-border p-4"><div className="relative max-w-md"><Search className="absolute top-3.5 left-3 size-4 text-muted-foreground" /><Input aria-label="Buscar proveedores" className={`${controlClass} pl-10`} style={{ paddingLeft: 40 }} placeholder="Buscar por razón social o RUC…" value={search} onChange={(e) => setSearch(e.target.value)} /></div></div><Feedback loading={suppliers.loading} error={suppliers.error} retry={() => void suppliers.refresh()} />{!suppliers.loading && !suppliers.error ? filtered.length ? <div className="overflow-x-auto"><table className="w-full min-w-[640px] text-left text-sm"><thead className="bg-muted/40 text-xs text-muted-foreground"><tr><th className="px-5 py-3 font-medium">Razón social</th><th className="px-5 py-3 font-medium">RUC</th><th className="px-5 py-3 font-medium">Dirección</th><th className="px-5 py-3 font-medium">Teléfono</th></tr></thead><tbody>{filtered.map((supplier) => <tr key={supplier.id} className="border-t border-border"><td className="px-5 py-5 font-medium">{supplier.name}</td><td className="px-5 py-5 text-muted-foreground">{supplier.ruc}</td><td className="px-5 py-5 text-muted-foreground">{supplier.address || 'Sin registrar'}</td><td className="px-5 py-5 text-muted-foreground">{supplier.phone || 'Sin registrar'}</td></tr>)}</tbody></table></div> : <EmptyState title={search ? 'No encontramos proveedores' : 'Registra tu primer proveedor'} detail={search ? 'Prueba otro RUC o nombre.' : 'Guarda su RUC y razón social para seleccionarlo al recibir mercadería.'} /> : null}</CardContent></Card>{editor ? <SupplierEditor onClose={() => setEditor(false)} onSaved={(supplier) => { suppliers.setData((items) => items.some((item) => item.id === supplier.id) ? items.map((item) => item.id === supplier.id ? supplier : item) : [...items, supplier]); setEditor(false); }} /> : null}</div>;
+}
