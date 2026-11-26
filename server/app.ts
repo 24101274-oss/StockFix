@@ -16,6 +16,7 @@ import { getPackagingStock, normalizePresentationCounts } from '../shared/stock-
 import { createDocumentLookup, DocumentLookupError, type DocumentLookupOptions } from './document-lookup';
 import { buildSummary, registerReports } from './reports';
 import { registerForecast } from './forecast/routes';
+import { registerReplenishment } from './replenishment/routes';
 import { registerUserManagement } from './user-management';
 import { prepareProductPackaging, registerStockUnpacking } from './stock-unpack';
 import * as schema from './schema';
@@ -215,6 +216,12 @@ export async function buildApp(options: AppOptions = {}) {
     loadMovements: async () => (await db.select().from(schema.stockMovements)).map(row => row.data),
   });
   registerForecast(app, {
+    requireAdmin,
+    loadSales: async () => (await db.select().from(schema.sales)).map(row => row.data),
+    loadProducts: async () => (await db.select().from(schema.products)).map(row => row.data),
+    loadManifest: async () => demoDataset,
+  });
+  registerReplenishment(app, {
     requireAdmin,
     loadSales: async () => (await db.select().from(schema.sales)).map(row => row.data),
     loadProducts: async () => (await db.select().from(schema.products)).map(row => row.data),

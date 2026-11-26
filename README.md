@@ -76,7 +76,15 @@ Se utilizan métodos estadísticos explicables: último mes, promedio de tres me
 
 El módulo consulta ventas registradas y excluye anulaciones. No cambia stock, caja ni compras. Los ceros se incluyen únicamente dentro de la cobertura observada; las ventas pueden subestimar demanda cuando faltó stock. El error sobre datos sintéticos demuestra el recorrido académico y no garantiza resultados comerciales. El cálculo local no necesita claves ni servicios de IA externos.
 
-Ver [manual, metodología y evidencia](docs/DDS-11_PRONOSTICO_MENSUAL.md). Las recomendaciones de reposición se incorporan en DDS-12.
+Ver [manual, metodología y evidencia](docs/DDS-11_PRONOSTICO_MENSUAL.md).
+
+## Reposición mensual (HU11 / DDS-12)
+
+Abrir **Reposición mensual** como administrador. Elegir horizonte, reserva porcentual, plazo y producto; calcular y revisar cada presentación. El módulo protege la demanda/reserva del almacén y propone trasladar su excedente al puesto antes de sugerir compras. Las presentaciones unitarias comparten una sola cuenta de piezas sueltas; los empaques cerrados conservan su propio saldo. Un conteo desconocido bloquea la sugerencia correspondiente.
+
+En **Ajustar escenario** se declaran cantidades pendientes por recibir, sus fechas y destinos, y consumo previo al primer mes. Las compras ya recibidas están incluidas en stock y no se suman otra vez. El escenario no guarda pedidos ni registra movimientos. Supone que la demanda mensual debe estar disponible el día 1; una recepción posterior se difiere al mes siguiente. Los saldos futuros dependen de ejecutar las recomendaciones a tiempo.
+
+Los CSV/Excel usan el cálculo aplicado. Si cambia el stock o el resultado antes de descargar, se exige recalcular. Los supuestos duran solo mientras permanezcas en la página. Ver [reglas, manual y evidencias](docs/DDS-12_REPOSICION_MENSUAL.md).
 
 ## Procedencia y límites
 
