@@ -47,6 +47,27 @@ El último comando levanta API/Vite con ventanas ocultas, ejecuta CP-01 a CP-08 
 
 Las pruebas heredadas están en `server/tests`. Algunas usan una base en memoria y otras crean carpetas temporales bajo `tmp` de esta copia; no acceden a la base original. Las consultas externas se prueban con respuestas simuladas explícitas. El registro de evidencia distingue la suite heredada de los ocho casos nuevos de la copia académica.
 
+## Histórico sintético para la predicción mensual (HU09 / DDS-10)
+
+Esta preparación genera un histórico ficticio con semilla fija: 36 meses completos anteriores al mes de corte y operaciones del mes parcial hasta la fecha indicada. Incluye productos de demostración, estacionalidad, tendencia, demanda intermitente, meses sin ventas y productos nuevos con cobertura identificada. Los importes y las cantidades son datos sintéticos, no resultados de un negocio.
+
+Desde la carpeta del proyecto, con la aplicación detenida para el destino de carga:
+
+```powershell
+npm.cmd run demo:seed -- --as-of 2026-11-26 --seed stockfix-2026 --months 36
+$env:DATA_DIR = (Resolve-Path './data/forecast-demo').Path
+npm.cmd run build
+npm.cmd start
+```
+
+Abrir http://127.0.0.1:3341 e ingresar con un acceso académico del apartado anterior. La aplicación muestra **DATOS SINTÉTICOS DE DEMOSTRACIÓN** y permite descargar el manifiesto. Los archivos CSV/XLSX descargados desde esa base llevan el mismo aviso en su nombre y una cabecera HTTP que identifica su origen, conservando sus columnas.
+
+El destino predeterminado es `data/forecast-demo`, separado de `data/demo-db`. El importador rechaza el destino habitual y las bases no identificadas como propias de esta demostración. Repetir la misma configuración conserva los registros y evita duplicarlos. Para otro escenario, elegir una carpeta nueva mediante `--data-dir`; no cambiar la semilla ni la fecha sobre una base que ya contiene un histórico distinto.
+
+El manifiesto conserva origen, versión, semilla, fecha de corte en America/Lima, cobertura por producto, conteos y hash del conjunto generado. Una observación cero después de la introducción del producto se diferencia del periodo anterior en que no se observaba. El mes parcial está identificado para que el modelo posterior no lo interprete como un mes completo.
+
+Este bloque prepara los datos y su trazabilidad. El cálculo del pronóstico y las recomendaciones de reposición se desarrollan en DDS-11 y DDS-12. Ver `docs/DDS-10_HISTORICO_SINTETICO.md` para los criterios y la verificación.
+
 ## Procedencia y límites
 
 Ver `PROCEDENCIA.md` y `../evidencias/procedencia.json`. El proyecto original no incluía un archivo LICENSE ni un campo license para el código propio; no se ha inventado una licencia. Las dependencias conservan sus licencias dentro de `node_modules` y se identifican en `package-lock.json`.
