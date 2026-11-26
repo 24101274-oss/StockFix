@@ -1,6 +1,7 @@
 import { sql } from 'drizzle-orm';
 import { bigint, boolean, integer, jsonb, pgTable, primaryKey, text, uniqueIndex } from 'drizzle-orm/pg-core';
 import type { CashSession, Customer, Product, Purchase, Sale, StockMovement, Supplier, Role } from '../shared/types';
+import type { SyntheticManifest } from '../shared/demo-dataset';
 
 export const users = pgTable('users', {
   id: text('id').primaryKey(), name: text('name').notNull(), email: text('email').notNull().unique(),
@@ -47,6 +48,10 @@ export const stockTransferRequests = pgTable('stock_transfer_requests', {
   productId: text('product_id').notNull().references(() => products.id),
 });
 export const counters = pgTable('counters', { name: text('name').primaryKey(), value: integer('value').notNull() });
+export const demoDatasets = pgTable('demo_datasets', {
+  id: text('id').primaryKey(), data: jsonb('data').$type<SyntheticManifest>().notNull(),
+  loadedAt: text('loaded_at').notNull(),
+});
 
 // Kept alongside the typed Drizzle schema so the first local start needs no external database tooling.
 export const initialSchema = `
@@ -66,4 +71,5 @@ CREATE UNIQUE INDEX IF NOT EXISTS one_open_register ON cash_sessions(closed) WHE
 CREATE TABLE IF NOT EXISTS operation_requests (scope text NOT NULL, idempotency_key text NOT NULL, request_hash text NOT NULL, cash_session_id text NOT NULL REFERENCES cash_sessions(id), PRIMARY KEY(scope, idempotency_key));
 CREATE TABLE IF NOT EXISTS stock_movements (id text PRIMARY KEY, data jsonb NOT NULL);
 CREATE TABLE IF NOT EXISTS counters (name text PRIMARY KEY, value integer NOT NULL);
+CREATE TABLE IF NOT EXISTS demo_datasets (id text PRIMARY KEY CHECK (id = 'active'), data jsonb NOT NULL, loaded_at text NOT NULL);
 `;

@@ -112,9 +112,22 @@ export async function buildApp(options: AppOptions = {}) {
     });
   }
   const app = Fastify({ logger: false, bodyLimit: 256 * 1024, trustProxy: false });
+  const [datasetRecord] = await db.select().from(schema.demoDatasets).where(eq(schema.demoDatasets.id, 'active')).limit(1);
+  const demoDataset = datasetRecord?.data ?? null;
   const documentLookup = createDocumentLookup(options.lookup);
   await app.register(cookie);
   app.addHook('onClose', async () => { await writeTail; await pglite.close(); });
+  app.addHook('onSend', async (request, reply, payload) => {
+    if (demoDataset && request.url.startsWith('/api/')) {
+      reply.header('X-StockFix-Data-Origin', 'synthetic');
+      reply.header('X-StockFix-Dataset-Id', demoDataset.id);
+      const disposition = reply.getHeader('Content-Disposition');
+      if (typeof disposition === 'string') {
+        reply.header('Content-Disposition', disposition.replace(/filename="([^"]+)"/, 'filename="DATOS_SINTETICOS_DEMOSTRACION-$1"'));
+      }
+    }
+    return payload;
+  });
   app.setErrorHandler((error, _request, reply) => {
     if (error instanceof DocumentLookupError) {
       if (error.retryAfterSeconds) reply.header('Retry-After', error.retryAfterSeconds);
@@ -181,6 +194,12 @@ export async function buildApp(options: AppOptions = {}) {
     return authenticated;
   });
   app.get('/api/auth/me', requireUser);
+  app.get('/api/demo-dataset', async request => { await requireUser(request); return { dataset: demoDataset }; });
+  app.get('/api/demo-dataset/manifest.json', async (request, reply) => {
+    await requireUser(request);
+    if (!demoDataset) fail('Esta base no tiene un histórico sintético identificado.', 404);
+    return reply.header('Content-Disposition', 'attachment; filename="manifiesto-stockfix.json"').send(demoDataset);
+  });
   app.post('/api/auth/logout', async (request, reply) => {
     const token = request.cookies[cookieName];
     if (token) await atomic(tx => tx.delete(schema.sessions).where(eq(schema.sessions.tokenHash, digest(token))));

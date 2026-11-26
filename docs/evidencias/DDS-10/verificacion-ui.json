@@ -1,0 +1,139 @@
+{
+  "verifiedAt": "2026-11-26T21:02:55.662Z",
+  "browser": "158.0.4370.33",
+  "source": "real UI/API with the seeded local demo database",
+  "dataset": {
+    "id": "synthetic-v1-30e8fb46ab0e8c1e4b3fe7fa",
+    "kind": "synthetic",
+    "seed": "stockfix-2026",
+    "label": "DATOS SINTÉTICOS DE DEMOSTRACIÓN",
+    "units": "physical-items",
+    "counts": {
+      "sales": 368,
+      "products": 6,
+      "purchases": 74,
+      "cashSessions": 184,
+      "stockMovements": 3861
+    },
+    "version": 1,
+    "asOfDate": "2026-11-26",
+    "coverage": [
+      {
+        "pattern": "tendencia creciente",
+        "productId": "demo-product-ab3e1ff44209c06f8480909e",
+        "introducedOn": "2023-11-01",
+        "observedFrom": "2023-11-01",
+        "observedThrough": "2026-11-26"
+      },
+      {
+        "pattern": "estacionalidad anual",
+        "productId": "demo-product-22d23b8aa19730a2e10e27b6",
+        "introducedOn": "2023-11-01",
+        "observedFrom": "2023-11-01",
+        "observedThrough": "2026-11-26"
+      },
+      {
+        "pattern": "intermitente con ceros observados",
+        "productId": "demo-product-91ef84e5138771c23b269e84",
+        "introducedOn": "2023-11-01",
+        "observedFrom": "2023-11-01",
+        "observedThrough": "2026-11-26"
+      },
+      {
+        "pattern": "demanda estable",
+        "productId": "demo-product-f802a6edc5b608db48182048",
+        "introducedOn": "2023-11-01",
+        "observedFrom": "2023-11-01",
+        "observedThrough": "2026-11-26"
+      },
+      {
+        "pattern": "tendencia y estacionalidad anual",
+        "productId": "demo-product-a49dac2f5676244d2a21ff21",
+        "introducedOn": "2023-11-01",
+        "observedFrom": "2023-11-01",
+        "observedThrough": "2026-11-26"
+      },
+      {
+        "pattern": "producto nuevo",
+        "productId": "demo-product-a05e1eba3492e65488edbec9",
+        "introducedOn": "2026-08-01",
+        "observedFrom": "2026-08-01",
+        "observedThrough": "2026-11-26"
+      }
+    ],
+    "timeZone": "America/Lima",
+    "dataSha256": "84ee07d6f443ff58e3f2a5eb3e35e7f2557dfca013341c4002f236162ef257f3",
+    "historyStart": "2023-11-01",
+    "completeMonths": 36,
+    "observedThrough": "2026-11-26",
+    "lastCompleteMonth": "2026-10"
+  },
+  "summaryWeek": [
+    {
+      "date": "2026-11-20",
+      "totalCents": 0
+    },
+    {
+      "date": "2026-11-21",
+      "totalCents": 29451
+    },
+    {
+      "date": "2026-11-22",
+      "totalCents": 0
+    },
+    {
+      "date": "2026-11-23",
+      "totalCents": 0
+    },
+    {
+      "date": "2026-11-24",
+      "totalCents": 0
+    },
+    {
+      "date": "2026-11-25",
+      "totalCents": 0
+    },
+    {
+      "date": "2026-11-26",
+      "totalCents": 0
+    }
+  ],
+  "weeklyCurveHeight": 207.13900756835938,
+  "manifestDownloaded": "DATOS_SINTETICOS_DEMOSTRACION-manifiesto-stockfix.json",
+  "csvExportStatus": 200,
+  "pageErrors": [],
+  "responses": [
+    {
+      "path": "/api/auth/me",
+      "status": 401
+    },
+    {
+      "path": "/api/auth/login",
+      "status": 200
+    },
+    {
+      "path": "/api/demo-dataset",
+      "status": 200
+    },
+    {
+      "path": "/api/summary",
+      "status": 200
+    },
+    {
+      "path": "/api/sales",
+      "status": 200
+    },
+    {
+      "path": "/api/sales",
+      "status": 200
+    },
+    {
+      "path": "/api/settings",
+      "status": 200
+    },
+    {
+      "path": "/api/demo-dataset/manifest.json",
+      "status": 200
+    }
+  ]
+}
