@@ -1,0 +1,274 @@
+{
+  "verifiedAt": "2026-11-26T23:40:03.771Z",
+  "browser": "158.0.4370.33",
+  "source": "real UI/API with synthetic local data and explicitly hypothetical receipts/bridge assumptions",
+  "initialItems": 12,
+  "readyItems": 12,
+  "scenario": {
+    "horizon": 3,
+    "leadTimeDays": 14,
+    "reservePercent": 10,
+    "productId": "demo-product-ab3e1ff44209c06f8480909e",
+    "receipts": [
+      {
+        "id": "f7e45780-e728-4f1d-98b7-c07217be16e2",
+        "productId": "demo-product-ab3e1ff44209c06f8480909e",
+        "presentationId": "demo-bolsas-paquete",
+        "location": "almacen",
+        "quantity": 50,
+        "expectedOn": "2026-12-01",
+        "status": "pending"
+      },
+      {
+        "id": "9fd08310-9008-4281-a032-cfa33fccb71b",
+        "productId": "demo-product-ab3e1ff44209c06f8480909e",
+        "presentationId": "demo-bolsas-paquete",
+        "location": "puesto",
+        "quantity": 7,
+        "expectedOn": "2026-12-15",
+        "status": "pending"
+      },
+      {
+        "id": "3521990a-8916-4928-91c7-ce7c82c718cc",
+        "productId": "demo-product-ab3e1ff44209c06f8480909e",
+        "presentationId": "demo-bolsas-paquete",
+        "location": "puesto",
+        "quantity": 9,
+        "expectedOn": "2026-11-26",
+        "status": "received"
+      }
+    ],
+    "bridgeDemand": [
+      {
+        "productId": "demo-product-ab3e1ff44209c06f8480909e",
+        "presentationId": "demo-bolsas-paquete",
+        "location": "puesto",
+        "quantity": 2
+      },
+      {
+        "productId": "demo-product-ab3e1ff44209c06f8480909e",
+        "presentationId": "demo-bolsas-paquete",
+        "location": "almacen",
+        "quantity": 1
+      }
+    ]
+  },
+  "snapshot": "6c431331a6b0fc3473b47cb01c5674bc48790b7c300d46fcb369842fc9554677",
+  "receiptDispositions": [
+    {
+      "id": "f7e45780-e728-4f1d-98b7-c07217be16e2",
+      "status": "scheduled",
+      "eligibleMonth": "2026-12",
+      "note": "Se incluye una vez en 2026-12, antes de su necesidad al día 1."
+    },
+    {
+      "id": "9fd08310-9008-4281-a032-cfa33fccb71b",
+      "status": "scheduled",
+      "eligibleMonth": "2027-01",
+      "note": "Llega después del día 1 de 2026-12 y se incluye desde 2027-01."
+    },
+    {
+      "id": "3521990a-8916-4928-91c7-ce7c82c718cc",
+      "status": "received-excluded",
+      "eligibleMonth": null,
+      "note": "La entrada recibida ya debe estar incluida en el inventario actual y no se suma otra vez."
+    }
+  ],
+  "selectedItem": {
+    "id": "[\"demo-product-ab3e1ff44209c06f8480909e\",\"demo-bolsas-paquete\"]",
+    "productId": "demo-product-ab3e1ff44209c06f8480909e",
+    "productName": "DEMO Bolsas claras",
+    "sku": "DEMO-BOLSAS",
+    "presentationId": "demo-bolsas-paquete",
+    "presentationLabel": "Paquete DEMO de 100",
+    "sourcePresentationIds": [
+      "demo-bolsas-paquete"
+    ],
+    "unitsPerPresentation": 100,
+    "quantityUnit": "closed-packages",
+    "status": "ready",
+    "initialStock": {
+      "puesto": 2,
+      "almacen": 2
+    },
+    "bridgeDemand": {
+      "puesto": 2,
+      "almacen": 1
+    },
+    "bridgeUncovered": {
+      "puesto": 0,
+      "almacen": 0
+    },
+    "afterBridge": {
+      "puesto": 0,
+      "almacen": 1
+    },
+    "months": [
+      {
+        "month": "2026-12",
+        "needBy": "2026-12-01",
+        "orderBy": "2026-11-17",
+        "earliestArrivalIfOrderedToday": "2026-12-10",
+        "opening": {
+          "puesto": 0,
+          "almacen": 1
+        },
+        "receipts": {
+          "puesto": 0,
+          "almacen": 50
+        },
+        "available": {
+          "puesto": 0,
+          "almacen": 51
+        },
+        "demandPhysicalUnits": {
+          "puesto": 1426,
+          "almacen": 576
+        },
+        "demand": {
+          "puesto": 15,
+          "almacen": 6
+        },
+        "reserve": {
+          "puesto": 2,
+          "almacen": 1
+        },
+        "transferFromWarehouse": 17,
+        "suggestedPurchase": {
+          "puesto": 0,
+          "almacen": 0
+        },
+        "closingWithoutThisPurchase": {
+          "puesto": 2,
+          "almacen": 28
+        },
+        "uncoveredDemand": {
+          "puesto": 0,
+          "almacen": 0
+        },
+        "closingIfRecommendations": {
+          "puesto": 2,
+          "almacen": 28
+        },
+        "timingRisk": false,
+        "warnings": []
+      },
+      {
+        "month": "2027-01",
+        "needBy": "2027-01-01",
+        "orderBy": "2026-12-18",
+        "earliestArrivalIfOrderedToday": "2026-12-10",
+        "opening": {
+          "puesto": 2,
+          "almacen": 28
+        },
+        "receipts": {
+          "puesto": 7,
+          "almacen": 0
+        },
+        "available": {
+          "puesto": 9,
+          "almacen": 28
+        },
+        "demandPhysicalUnits": {
+          "puesto": 1442,
+          "almacen": 582
+        },
+        "demand": {
+          "puesto": 15,
+          "almacen": 6
+        },
+        "reserve": {
+          "puesto": 2,
+          "almacen": 1
+        },
+        "transferFromWarehouse": 8,
+        "suggestedPurchase": {
+          "puesto": 0,
+          "almacen": 0
+        },
+        "closingWithoutThisPurchase": {
+          "puesto": 2,
+          "almacen": 14
+        },
+        "uncoveredDemand": {
+          "puesto": 0,
+          "almacen": 0
+        },
+        "closingIfRecommendations": {
+          "puesto": 2,
+          "almacen": 14
+        },
+        "timingRisk": false,
+        "warnings": []
+      },
+      {
+        "month": "2027-02",
+        "needBy": "2027-02-01",
+        "orderBy": "2027-01-18",
+        "earliestArrivalIfOrderedToday": "2026-12-10",
+        "opening": {
+          "puesto": 2,
+          "almacen": 14
+        },
+        "receipts": {
+          "puesto": 0,
+          "almacen": 0
+        },
+        "available": {
+          "puesto": 2,
+          "almacen": 14
+        },
+        "demandPhysicalUnits": {
+          "puesto": 1458,
+          "almacen": 589
+        },
+        "demand": {
+          "puesto": 15,
+          "almacen": 6
+        },
+        "reserve": {
+          "puesto": 2,
+          "almacen": 1
+        },
+        "transferFromWarehouse": 7,
+        "suggestedPurchase": {
+          "puesto": 8,
+          "almacen": 0
+        },
+        "closingWithoutThisPurchase": {
+          "puesto": 0,
+          "almacen": 1
+        },
+        "uncoveredDemand": {
+          "puesto": 6,
+          "almacen": 0
+        },
+        "closingIfRecommendations": {
+          "puesto": 2,
+          "almacen": 1
+        },
+        "timingRisk": false,
+        "warnings": []
+      }
+    ],
+    "warnings": [
+      "Llega después del día 1 de 2026-12 y se incluye desde 2027-01."
+    ]
+  },
+  "bridgeShortageVerified": {
+    "declaredConsumption": 50,
+    "initialStock": 2,
+    "uncovered": 48,
+    "visibleInUI": true
+  },
+  "downloads": [
+    "DATOS_SINTETICOS_DEMOSTRACION-stockfix-reposicion-2026-11-26-PRUEBA.csv",
+    "DATOS_SINTETICOS_DEMOSTRACION-stockfix-reposicion-2026-11-26-PRUEBA.xlsx"
+  ],
+  "dirtyExportDisabled": true,
+  "mobileOverflow": false,
+  "mobileNavigationReachable": true,
+  "operationalRecordsUnchanged": true,
+  "pageErrors": []
+}

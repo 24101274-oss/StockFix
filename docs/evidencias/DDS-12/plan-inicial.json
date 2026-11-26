@@ -1,0 +1,2223 @@
+{
+  "version": 1,
+  "asOfDate": "2026-11-26",
+  "firstMonth": "2026-12",
+  "timeZone": "America/Lima",
+  "scenario": {
+    "horizon": 3,
+    "leadTimeDays": 14,
+    "reservePercent": 10,
+    "receipts": [],
+    "bridgeDemand": []
+  },
+  "source": {
+    "kind": "synthetic",
+    "label": "DATOS SINTÉTICOS DE DEMOSTRACIÓN",
+    "datasetId": "synthetic-v1-30e8fb46ab0e8c1e4b3fe7fa",
+    "observedThrough": "2026-11-26"
+  },
+  "assumptions": [
+    "El inventario inicial es el saldo actual al corte. El consumo de enlace explícito se descuenta antes del horizonte; su valor cero omite el consumo restante del mes parcial.",
+    "Toda la demanda mensual y su reserva se consideran necesarias el día 1 como criterio conservador. No se determina una fecha diaria garantizada de quiebre de stock.",
+    "La reserva es el porcentaje indicado sobre la demanda mensual, redondeado hacia arriba por saldo físico y ubicación.",
+    "Cada empaque cerrado mantiene su saldo. Las presentaciones unitarias comparten una sola cuenta de piezas sueltas. No se abren empaques automáticamente.",
+    "El límite numérico se verifica por saldo físico individual. La suma de piezas de todas las presentaciones del producto se vuelve a validar al registrar la operación real.",
+    "Las compras registradas ya están incluidas en el inventario. Solo las entradas futuras pendientes explícitas del escenario se añaden una vez.",
+    "Los saldos finales y las aperturas posteriores son condicionales a ejecutar las recomendaciones y recibirlas a tiempo. El plan no crea pedidos, traslados ni operaciones reales."
+  ],
+  "receiptDispositions": [],
+  "warnings": [
+    "Las ventas registradas pueden estar limitadas por faltantes de stock. El pronóstico describe ventas observadas y requiere revisar disponibilidad."
+  ],
+  "items": [
+    {
+      "id": "[\"demo-product-ab3e1ff44209c06f8480909e\",\"demo-bolsas-paquete\"]",
+      "productId": "demo-product-ab3e1ff44209c06f8480909e",
+      "productName": "DEMO Bolsas claras",
+      "sku": "DEMO-BOLSAS",
+      "presentationId": "demo-bolsas-paquete",
+      "presentationLabel": "Paquete DEMO de 100",
+      "sourcePresentationIds": [
+        "demo-bolsas-paquete"
+      ],
+      "unitsPerPresentation": 100,
+      "quantityUnit": "closed-packages",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "demandPhysicalUnits": {
+            "puesto": 1426,
+            "almacen": 576
+          },
+          "demand": {
+            "puesto": 15,
+            "almacen": 6
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 15,
+            "almacen": 5
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 13,
+            "almacen": 4
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 1442,
+            "almacen": 582
+          },
+          "demand": {
+            "puesto": 15,
+            "almacen": 6
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 15,
+            "almacen": 6
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 13,
+            "almacen": 5
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 1458,
+            "almacen": 589
+          },
+          "demand": {
+            "puesto": 15,
+            "almacen": 6
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 15,
+            "almacen": 6
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 13,
+            "almacen": 5
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-ab3e1ff44209c06f8480909e\",null]",
+      "productId": "demo-product-ab3e1ff44209c06f8480909e",
+      "productName": "DEMO Bolsas claras",
+      "sku": "DEMO-BOLSAS",
+      "presentationId": null,
+      "presentationLabel": "Unidades sueltas",
+      "sourcePresentationIds": [
+        "demo-bolsas-unidad"
+      ],
+      "unitsPerPresentation": 1,
+      "quantityUnit": "loose-pieces",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "demandPhysicalUnits": {
+            "puesto": 60,
+            "almacen": 31
+          },
+          "demand": {
+            "puesto": 60,
+            "almacen": 31
+          },
+          "reserve": {
+            "puesto": 6,
+            "almacen": 4
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 61,
+            "almacen": 30
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 55,
+            "almacen": 26
+          },
+          "closingIfRecommendations": {
+            "puesto": 6,
+            "almacen": 4
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 6,
+            "almacen": 4
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 6,
+            "almacen": 4
+          },
+          "demandPhysicalUnits": {
+            "puesto": 61,
+            "almacen": 0
+          },
+          "demand": {
+            "puesto": 61,
+            "almacen": 0
+          },
+          "reserve": {
+            "puesto": 7,
+            "almacen": 0
+          },
+          "transferFromWarehouse": 4,
+          "suggestedPurchase": {
+            "puesto": 58,
+            "almacen": 0
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 51,
+            "almacen": 0
+          },
+          "closingIfRecommendations": {
+            "puesto": 7,
+            "almacen": 0
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 7,
+            "almacen": 0
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 7,
+            "almacen": 0
+          },
+          "demandPhysicalUnits": {
+            "puesto": 62,
+            "almacen": 94
+          },
+          "demand": {
+            "puesto": 62,
+            "almacen": 94
+          },
+          "reserve": {
+            "puesto": 7,
+            "almacen": 10
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 62,
+            "almacen": 104
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 55,
+            "almacen": 94
+          },
+          "closingIfRecommendations": {
+            "puesto": 7,
+            "almacen": 10
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-22d23b8aa19730a2e10e27b6\",\"demo-vasos-paquete\"]",
+      "productId": "demo-product-22d23b8aa19730a2e10e27b6",
+      "productName": "DEMO Vasos de papel",
+      "sku": "DEMO-VASOS",
+      "presentationId": "demo-vasos-paquete",
+      "presentationLabel": "Paquete DEMO de 25",
+      "sourcePresentationIds": [
+        "demo-vasos-paquete"
+      ],
+      "unitsPerPresentation": 25,
+      "quantityUnit": "closed-packages",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "demandPhysicalUnits": {
+            "puesto": 535,
+            "almacen": 224
+          },
+          "demand": {
+            "puesto": 22,
+            "almacen": 9
+          },
+          "reserve": {
+            "puesto": 3,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 23,
+            "almacen": 8
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 20,
+            "almacen": 7
+          },
+          "closingIfRecommendations": {
+            "puesto": 3,
+            "almacen": 1
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 3,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 3,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 535,
+            "almacen": 224
+          },
+          "demand": {
+            "puesto": 22,
+            "almacen": 9
+          },
+          "reserve": {
+            "puesto": 3,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 22,
+            "almacen": 9
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 19,
+            "almacen": 8
+          },
+          "closingIfRecommendations": {
+            "puesto": 3,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 3,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 3,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 536,
+            "almacen": 224
+          },
+          "demand": {
+            "puesto": 22,
+            "almacen": 9
+          },
+          "reserve": {
+            "puesto": 3,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 22,
+            "almacen": 9
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 19,
+            "almacen": 8
+          },
+          "closingIfRecommendations": {
+            "puesto": 3,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-22d23b8aa19730a2e10e27b6\",null]",
+      "productId": "demo-product-22d23b8aa19730a2e10e27b6",
+      "productName": "DEMO Vasos de papel",
+      "sku": "DEMO-VASOS",
+      "presentationId": null,
+      "presentationLabel": "Unidades sueltas",
+      "sourcePresentationIds": [
+        "demo-vasos-unidad"
+      ],
+      "unitsPerPresentation": 1,
+      "quantityUnit": "loose-pieces",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "demandPhysicalUnits": {
+            "puesto": 13,
+            "almacen": 9
+          },
+          "demand": {
+            "puesto": 13,
+            "almacen": 9
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 10,
+            "almacen": 5
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 8,
+            "almacen": 4
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 13,
+            "almacen": 9
+          },
+          "demand": {
+            "puesto": 13,
+            "almacen": 9
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 13,
+            "almacen": 9
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 11,
+            "almacen": 8
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 13,
+            "almacen": 9
+          },
+          "demand": {
+            "puesto": 13,
+            "almacen": 9
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 13,
+            "almacen": 9
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 11,
+            "almacen": 8
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-91ef84e5138771c23b269e84\",\"demo-platos-paquete\"]",
+      "productId": "demo-product-91ef84e5138771c23b269e84",
+      "productName": "DEMO Platos de cartón",
+      "sku": "DEMO-PLATOS",
+      "presentationId": "demo-platos-paquete",
+      "presentationLabel": "Paquete DEMO de 12",
+      "sourcePresentationIds": [
+        "demo-platos-paquete"
+      ],
+      "unitsPerPresentation": 12,
+      "quantityUnit": "closed-packages",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "demandPhysicalUnits": {
+            "puesto": 156,
+            "almacen": 60
+          },
+          "demand": {
+            "puesto": 13,
+            "almacen": 5
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 13,
+            "almacen": 4
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 11,
+            "almacen": 3
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "demand": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "reserve": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "uncoveredDemand": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 132,
+            "almacen": 48
+          },
+          "demand": {
+            "puesto": 11,
+            "almacen": 4
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 11,
+            "almacen": 4
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 9,
+            "almacen": 3
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-91ef84e5138771c23b269e84\",null]",
+      "productId": "demo-product-91ef84e5138771c23b269e84",
+      "productName": "DEMO Platos de cartón",
+      "sku": "DEMO-PLATOS",
+      "presentationId": null,
+      "presentationLabel": "Unidades sueltas",
+      "sourcePresentationIds": [
+        "demo-platos-unidad"
+      ],
+      "unitsPerPresentation": 1,
+      "quantityUnit": "loose-pieces",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "demandPhysicalUnits": {
+            "puesto": 3,
+            "almacen": 7
+          },
+          "demand": {
+            "puesto": 3,
+            "almacen": 7
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 0,
+            "almacen": 3
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 2,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 0,
+            "almacen": 2
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 3,
+            "almacen": 0
+          },
+          "demand": {
+            "puesto": 3,
+            "almacen": 0
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 0
+          },
+          "transferFromWarehouse": 1,
+          "suggestedPurchase": {
+            "puesto": 1,
+            "almacen": 0
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 0
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 1,
+            "almacen": 0
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 1,
+            "almacen": 0
+          },
+          "demandPhysicalUnits": {
+            "puesto": 3,
+            "almacen": 9
+          },
+          "demand": {
+            "puesto": 3,
+            "almacen": 9
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 3,
+            "almacen": 10
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 2,
+            "almacen": 9
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-f802a6edc5b608db48182048\",\"demo-servilletas-paquete\"]",
+      "productId": "demo-product-f802a6edc5b608db48182048",
+      "productName": "DEMO Servilletas blancas",
+      "sku": "DEMO-SERVILLETAS",
+      "presentationId": "demo-servilletas-paquete",
+      "presentationLabel": "Paquete DEMO de 50",
+      "sourcePresentationIds": [
+        "demo-servilletas-paquete"
+      ],
+      "unitsPerPresentation": 50,
+      "quantityUnit": "closed-packages",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "demandPhysicalUnits": {
+            "puesto": 733,
+            "almacen": 300
+          },
+          "demand": {
+            "puesto": 15,
+            "almacen": 6
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 15,
+            "almacen": 5
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 13,
+            "almacen": 4
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 733,
+            "almacen": 300
+          },
+          "demand": {
+            "puesto": 15,
+            "almacen": 6
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 15,
+            "almacen": 6
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 13,
+            "almacen": 5
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 733,
+            "almacen": 300
+          },
+          "demand": {
+            "puesto": 15,
+            "almacen": 6
+          },
+          "reserve": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 15,
+            "almacen": 6
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 13,
+            "almacen": 5
+          },
+          "closingIfRecommendations": {
+            "puesto": 2,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-f802a6edc5b608db48182048\",null]",
+      "productId": "demo-product-f802a6edc5b608db48182048",
+      "productName": "DEMO Servilletas blancas",
+      "sku": "DEMO-SERVILLETAS",
+      "presentationId": null,
+      "presentationLabel": "Unidades sueltas",
+      "sourcePresentationIds": [
+        "demo-servilletas-unidad"
+      ],
+      "unitsPerPresentation": 1,
+      "quantityUnit": "loose-pieces",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "demandPhysicalUnits": {
+            "puesto": 24,
+            "almacen": 30
+          },
+          "demand": {
+            "puesto": 24,
+            "almacen": 30
+          },
+          "reserve": {
+            "puesto": 3,
+            "almacen": 3
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 22,
+            "almacen": 28
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 19,
+            "almacen": 25
+          },
+          "closingIfRecommendations": {
+            "puesto": 3,
+            "almacen": 3
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 3,
+            "almacen": 3
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 3,
+            "almacen": 3
+          },
+          "demandPhysicalUnits": {
+            "puesto": 24,
+            "almacen": 30
+          },
+          "demand": {
+            "puesto": 24,
+            "almacen": 30
+          },
+          "reserve": {
+            "puesto": 3,
+            "almacen": 3
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 24,
+            "almacen": 30
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 21,
+            "almacen": 27
+          },
+          "closingIfRecommendations": {
+            "puesto": 3,
+            "almacen": 3
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 3,
+            "almacen": 3
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 3,
+            "almacen": 3
+          },
+          "demandPhysicalUnits": {
+            "puesto": 24,
+            "almacen": 30
+          },
+          "demand": {
+            "puesto": 24,
+            "almacen": 30
+          },
+          "reserve": {
+            "puesto": 3,
+            "almacen": 3
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 24,
+            "almacen": 30
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 21,
+            "almacen": 27
+          },
+          "closingIfRecommendations": {
+            "puesto": 3,
+            "almacen": 3
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-a49dac2f5676244d2a21ff21\",\"demo-envases-paquete\"]",
+      "productId": "demo-product-a49dac2f5676244d2a21ff21",
+      "productName": "DEMO Envases con tapa",
+      "sku": "DEMO-ENVASES",
+      "presentationId": "demo-envases-paquete",
+      "presentationLabel": "Paquete DEMO de 10",
+      "sourcePresentationIds": [
+        "demo-envases-paquete"
+      ],
+      "unitsPerPresentation": 10,
+      "quantityUnit": "closed-packages",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "demandPhysicalUnits": {
+            "puesto": 463,
+            "almacen": 204
+          },
+          "demand": {
+            "puesto": 47,
+            "almacen": 21
+          },
+          "reserve": {
+            "puesto": 5,
+            "almacen": 3
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 50,
+            "almacen": 22
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 45,
+            "almacen": 19
+          },
+          "closingIfRecommendations": {
+            "puesto": 5,
+            "almacen": 3
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 5,
+            "almacen": 3
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 5,
+            "almacen": 3
+          },
+          "demandPhysicalUnits": {
+            "puesto": 463,
+            "almacen": 207
+          },
+          "demand": {
+            "puesto": 47,
+            "almacen": 21
+          },
+          "reserve": {
+            "puesto": 5,
+            "almacen": 3
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 47,
+            "almacen": 21
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 42,
+            "almacen": 18
+          },
+          "closingIfRecommendations": {
+            "puesto": 5,
+            "almacen": 3
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 5,
+            "almacen": 3
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 5,
+            "almacen": 3
+          },
+          "demandPhysicalUnits": {
+            "puesto": 463,
+            "almacen": 209
+          },
+          "demand": {
+            "puesto": 47,
+            "almacen": 21
+          },
+          "reserve": {
+            "puesto": 5,
+            "almacen": 3
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 47,
+            "almacen": 21
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 42,
+            "almacen": 18
+          },
+          "closingIfRecommendations": {
+            "puesto": 5,
+            "almacen": 3
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-a49dac2f5676244d2a21ff21\",null]",
+      "productId": "demo-product-a49dac2f5676244d2a21ff21",
+      "productName": "DEMO Envases con tapa",
+      "sku": "DEMO-ENVASES",
+      "presentationId": null,
+      "presentationLabel": "Unidades sueltas",
+      "sourcePresentationIds": [
+        "demo-envases-unidad"
+      ],
+      "unitsPerPresentation": 1,
+      "quantityUnit": "loose-pieces",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "demandPhysicalUnits": {
+            "puesto": 4,
+            "almacen": 8
+          },
+          "demand": {
+            "puesto": 4,
+            "almacen": 8
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 0,
+            "almacen": 4
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 1,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 0,
+            "almacen": 3
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 4,
+            "almacen": 8
+          },
+          "demand": {
+            "puesto": 4,
+            "almacen": 8
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 4,
+            "almacen": 8
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 3,
+            "almacen": 7
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 4,
+            "almacen": 8
+          },
+          "demand": {
+            "puesto": 4,
+            "almacen": 8
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 4,
+            "almacen": 8
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 3,
+            "almacen": 7
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-a05e1eba3492e65488edbec9\",\"demo-cubiertos-paquete\"]",
+      "productId": "demo-product-a05e1eba3492e65488edbec9",
+      "productName": "DEMO Cubiertos de madera",
+      "sku": "DEMO-CUBIERTOS",
+      "presentationId": "demo-cubiertos-paquete",
+      "presentationLabel": "Paquete DEMO de 20",
+      "sourcePresentationIds": [
+        "demo-cubiertos-paquete"
+      ],
+      "unitsPerPresentation": 20,
+      "quantityUnit": "closed-packages",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 2,
+        "almacen": 2
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 2,
+            "almacen": 2
+          },
+          "demandPhysicalUnits": {
+            "puesto": 187,
+            "almacen": 73
+          },
+          "demand": {
+            "puesto": 10,
+            "almacen": 4
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 9,
+            "almacen": 3
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 8,
+            "almacen": 2
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 187,
+            "almacen": 73
+          },
+          "demand": {
+            "puesto": 10,
+            "almacen": 4
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 10,
+            "almacen": 4
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 9,
+            "almacen": 3
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "demandPhysicalUnits": {
+            "puesto": 187,
+            "almacen": 73
+          },
+          "demand": {
+            "puesto": 10,
+            "almacen": 4
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 10,
+            "almacen": 4
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 9,
+            "almacen": 3
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 1
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": [
+        "Hay entre 3 y 5 meses completos. Se usa el promedio de 3 meses sin evaluación temporal."
+      ]
+    },
+    {
+      "id": "[\"demo-product-a05e1eba3492e65488edbec9\",null]",
+      "productId": "demo-product-a05e1eba3492e65488edbec9",
+      "productName": "DEMO Cubiertos de madera",
+      "sku": "DEMO-CUBIERTOS",
+      "presentationId": null,
+      "presentationLabel": "Unidades sueltas",
+      "sourcePresentationIds": [
+        "demo-cubiertos-unidad"
+      ],
+      "unitsPerPresentation": 1,
+      "quantityUnit": "loose-pieces",
+      "status": "ready",
+      "initialStock": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "bridgeDemand": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "bridgeUncovered": {
+        "puesto": 0,
+        "almacen": 0
+      },
+      "afterBridge": {
+        "puesto": 5,
+        "almacen": 5
+      },
+      "months": [
+        {
+          "month": "2026-12",
+          "needBy": "2026-12-01",
+          "orderBy": "2026-11-17",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 5,
+            "almacen": 5
+          },
+          "demandPhysicalUnits": {
+            "puesto": 8,
+            "almacen": 11
+          },
+          "demand": {
+            "puesto": 8,
+            "almacen": 11
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 2
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 4,
+            "almacen": 8
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 3,
+            "almacen": 6
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 2
+          },
+          "timingRisk": true,
+          "warnings": [
+            "La recepción más temprana sería el 2026-12-10, después de la necesidad conservadora del 2026-12-01. El saldo condicionado supone una recepción a tiempo y requiere ajustar el escenario."
+          ]
+        },
+        {
+          "month": "2027-01",
+          "needBy": "2027-01-01",
+          "orderBy": "2026-12-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 1,
+            "almacen": 2
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 1,
+            "almacen": 2
+          },
+          "demandPhysicalUnits": {
+            "puesto": 8,
+            "almacen": 11
+          },
+          "demand": {
+            "puesto": 8,
+            "almacen": 11
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 2
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 8,
+            "almacen": 11
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 7,
+            "almacen": 9
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 2
+          },
+          "timingRisk": false,
+          "warnings": []
+        },
+        {
+          "month": "2027-02",
+          "needBy": "2027-02-01",
+          "orderBy": "2027-01-18",
+          "earliestArrivalIfOrderedToday": "2026-12-10",
+          "opening": {
+            "puesto": 1,
+            "almacen": 2
+          },
+          "receipts": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "available": {
+            "puesto": 1,
+            "almacen": 2
+          },
+          "demandPhysicalUnits": {
+            "puesto": 8,
+            "almacen": 11
+          },
+          "demand": {
+            "puesto": 8,
+            "almacen": 11
+          },
+          "reserve": {
+            "puesto": 1,
+            "almacen": 2
+          },
+          "transferFromWarehouse": 0,
+          "suggestedPurchase": {
+            "puesto": 8,
+            "almacen": 11
+          },
+          "closingWithoutThisPurchase": {
+            "puesto": 0,
+            "almacen": 0
+          },
+          "uncoveredDemand": {
+            "puesto": 7,
+            "almacen": 9
+          },
+          "closingIfRecommendations": {
+            "puesto": 1,
+            "almacen": 2
+          },
+          "timingRisk": false,
+          "warnings": []
+        }
+      ],
+      "warnings": [
+        "Hay entre 3 y 5 meses completos. Se usa el promedio de 3 meses sin evaluación temporal."
+      ]
+    }
+  ],
+  "snapshot": "cf8c68d814dce8d7d51da6ad40d10c319f433025cda3057a60d987dbbea8c4ca"
+}

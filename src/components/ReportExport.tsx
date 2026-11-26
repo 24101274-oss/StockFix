@@ -7,9 +7,10 @@ interface ReportExportProps {
   endpoint: string;
   params?: Record<string, string>;
   disabled?: boolean;
+  body?: unknown;
 }
 
-export default function ReportExport({ endpoint, params, disabled = false }: ReportExportProps) {
+export default function ReportExport({ endpoint, params, disabled = false, body }: ReportExportProps) {
   const [busy, setBusy] = useState<ReportFormat | null>(null);
   const [lastFormat, setLastFormat] = useState<ReportFormat>('xlsx');
   const [error, setError] = useState('');
@@ -23,7 +24,7 @@ export default function ReportExport({ endpoint, params, disabled = false }: Rep
     activeRequest.current = controller;
     setBusy(format); setLastFormat(format); setError(''); setMessage('');
     try {
-      await downloadReport(endpoint, params, format, controller.signal);
+      await downloadReport(endpoint, params, format, controller.signal, body);
       if (!controller.signal.aborted) setMessage(`Reporte ${format === 'xlsx' ? 'Excel' : 'CSV'} enviado a las descargas de tu dispositivo.`);
     } catch (error) {
       if (!controller.signal.aborted) setError(error instanceof Error ? error.message : 'No se pudo descargar el reporte. Vuelve a intentar.');

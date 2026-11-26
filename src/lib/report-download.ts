@@ -45,8 +45,9 @@ function reportFilename(header: string | null, endpoint: string, format: ReportF
   return name.toLowerCase().endsWith(`.${format}`) ? name : `${name.replace(/\.(xlsx|csv)$/i, '')}.${format}`;
 }
 
-export async function downloadReport(endpoint: string, params: Record<string, string> | undefined, format: ReportFormat, signal?: AbortSignal): Promise<void> {
-  if (endpoint !== '/forecast/export' && !/^\/reports\/[a-z-]+\/export$/.test(endpoint)) throw new Error('No se reconoce este reporte.');
+export async function downloadReport(endpoint: string, params: Record<string, string> | undefined, format: ReportFormat, signal?: AbortSignal, body?: unknown): Promise<void> {
+  if (!['/forecast/export', '/replenishment/export'].includes(endpoint) && !/^\/reports\/[a-z-]+\/export$/.test(endpoint)) throw new Error('No se reconoce este reporte.');
+  if (endpoint === '/replenishment/export' && body === undefined) throw new Error('Vuelve a calcular el escenario antes de exportar.');
   const query = new URLSearchParams(params);
   query.set('format', format);
   const controller = new AbortController();
@@ -56,10 +57,11 @@ export async function downloadReport(endpoint: string, params: Record<string, st
   const timeout = window.setTimeout(abort, 45_000);
   try {
     const response = await fetch(`/api${endpoint}?${query}`, {
+      ...(body === undefined ? {} : { method: 'POST', body: JSON.stringify(body) }),
       credentials: 'same-origin',
       signal: controller.signal,
       redirect: 'error',
-      headers: { Accept: reportMime[format] },
+      headers: { Accept: reportMime[format], ...(body === undefined ? {} : { 'Content-Type': 'application/json' }) },
     });
     if (!response.ok) {
       if (response.status === 401) window.dispatchEvent(new Event('auth-expired'));
