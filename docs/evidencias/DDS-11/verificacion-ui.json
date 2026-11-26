@@ -1,0 +1,643 @@
+{
+  "verifiedAt": "2026-11-26T23:13:32.611Z",
+  "browser": "158.0.4370.33",
+  "source": "real UI/API with the seeded local demo database",
+  "datasetId": "synthetic-v1-30e8fb46ab0e8c1e4b3fe7fa",
+  "cutoff": "2026-11-26",
+  "futureMonths": [
+    "2026-12",
+    "2027-01",
+    "2027-02"
+  ],
+  "series": 12,
+  "ready": 12,
+  "evaluated": 10,
+  "perSeries": [
+    {
+      "product": "DEMO Bolsas claras",
+      "presentation": "Unidad DEMO",
+      "historyMonths": 36,
+      "method": "seasonal-naive",
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 42,
+        "bias": -42,
+        "baselineMae": 117.33333333333333,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 117.33333333333333,
+            "bias": 41.333333333333336
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 72,
+            "bias": 42
+          },
+          {
+            "method": "linear-trend",
+            "mae": 58.666666666666664,
+            "bias": 16
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 42,
+            "bias": -42
+          }
+        ]
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 69,
+          "presentationQuantity": 69
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 99,
+          "presentationQuantity": 99
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 180,
+          "presentationQuantity": 180
+        }
+      ]
+    },
+    {
+      "product": "DEMO Bolsas claras",
+      "presentation": "Paquete DEMO de 100",
+      "historyMonths": 36,
+      "method": "linear-trend",
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 131.33333333333334,
+        "bias": -42.666666666666664,
+        "baselineMae": 233.33333333333334,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 233.33333333333334,
+            "bias": -100
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 166.66666666666666,
+            "bias": -122
+          },
+          {
+            "method": "linear-trend",
+            "mae": 131.33333333333334,
+            "bias": -42.666666666666664
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 333.3333333333333,
+            "bias": -333.3333333333333
+          }
+        ]
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 2002,
+          "presentationQuantity": 21
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 2024,
+          "presentationQuantity": 21
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 2047,
+          "presentationQuantity": 21
+        }
+      ]
+    },
+    {
+      "product": "DEMO Vasos de papel",
+      "presentation": "Unidad DEMO",
+      "historyMonths": 36,
+      "method": "last-month",
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 6.666666666666667,
+        "bias": 4,
+        "baselineMae": 6.666666666666667,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 6.666666666666667,
+            "bias": 4
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 7.333333333333333,
+            "bias": 1.3333333333333333
+          },
+          {
+            "method": "linear-trend",
+            "mae": 8.333333333333334,
+            "bias": -4.333333333333333
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 10,
+            "bias": -4
+          }
+        ]
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 13,
+          "presentationQuantity": 13
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 13,
+          "presentationQuantity": 13
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 13,
+          "presentationQuantity": 13
+        }
+      ]
+    },
+    {
+      "product": "DEMO Vasos de papel",
+      "presentation": "Paquete DEMO de 25",
+      "historyMonths": 36,
+      "method": "linear-trend",
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 59.333333333333336,
+        "bias": -3.3333333333333335,
+        "baselineMae": 116.66666666666667,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 116.66666666666667,
+            "bias": 16.666666666666668
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 69.33333333333333,
+            "bias": 36
+          },
+          {
+            "method": "linear-trend",
+            "mae": 59.333333333333336,
+            "bias": -3.3333333333333335
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 66.66666666666667,
+            "bias": 33.333333333333336
+          }
+        ]
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 759,
+          "presentationQuantity": 31
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 759,
+          "presentationQuantity": 31
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 760,
+          "presentationQuantity": 31
+        }
+      ]
+    },
+    {
+      "product": "DEMO Platos de cartón",
+      "presentation": "Unidad DEMO",
+      "historyMonths": 36,
+      "method": "seasonal-naive",
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 3,
+        "bias": 2.3333333333333335,
+        "baselineMae": 7.333333333333333,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 7.333333333333333,
+            "bias": 0
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 4.666666666666667,
+            "bias": -0.6666666666666666
+          },
+          {
+            "method": "linear-trend",
+            "mae": 4.666666666666667,
+            "bias": 0
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 3,
+            "bias": 2.3333333333333335
+          }
+        ]
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 7,
+          "presentationQuantity": 7
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 0,
+          "presentationQuantity": 0
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 10,
+          "presentationQuantity": 10
+        }
+      ]
+    },
+    {
+      "product": "DEMO Platos de cartón",
+      "presentation": "Paquete DEMO de 12",
+      "historyMonths": 36,
+      "method": "seasonal-naive",
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 8,
+        "bias": -8,
+        "baselineMae": 144,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 144,
+            "bias": 0
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 93.33333333333333,
+            "bias": -2.6666666666666665
+          },
+          {
+            "method": "linear-trend",
+            "mae": 100.33333333333333,
+            "bias": -12.333333333333334
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 8,
+            "bias": -8
+          }
+        ]
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 216,
+          "presentationQuantity": 18
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 0,
+          "presentationQuantity": 0
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 180,
+          "presentationQuantity": 15
+        }
+      ]
+    },
+    {
+      "product": "DEMO Servilletas blancas",
+      "presentation": "Unidad DEMO",
+      "historyMonths": 36,
+      "method": "linear-trend",
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 27,
+        "bias": -15,
+        "baselineMae": 41,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 41,
+            "bias": -4.333333333333333
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 37.666666666666664,
+            "bias": -20.333333333333332
+          },
+          {
+            "method": "linear-trend",
+            "mae": 27,
+            "bias": -15
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 30.666666666666668,
+            "bias": -6.666666666666667
+          }
+        ]
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 54,
+          "presentationQuantity": 54
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 54,
+          "presentationQuantity": 54
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 54,
+          "presentationQuantity": 54
+        }
+      ]
+    },
+    {
+      "product": "DEMO Servilletas blancas",
+      "presentation": "Paquete DEMO de 50",
+      "historyMonths": 36,
+      "method": "moving-average-3",
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 16.666666666666668,
+        "bias": 5.333333333333333,
+        "baselineMae": 33.333333333333336,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 33.333333333333336,
+            "bias": 0
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 16.666666666666668,
+            "bias": 5.333333333333333
+          },
+          {
+            "method": "linear-trend",
+            "mae": 38,
+            "bias": -34.666666666666664
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 83.33333333333333,
+            "bias": -83.33333333333333
+          }
+        ]
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 1033,
+          "presentationQuantity": 21
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 1033,
+          "presentationQuantity": 21
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 1033,
+          "presentationQuantity": 21
+        }
+      ]
+    },
+    {
+      "product": "DEMO Envases con tapa",
+      "presentation": "Unidad DEMO",
+      "historyMonths": 36,
+      "method": "last-month",
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 3.3333333333333335,
+        "bias": -2.6666666666666665,
+        "baselineMae": 3.3333333333333335,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 3.3333333333333335,
+            "bias": -2.6666666666666665
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 3.6666666666666665,
+            "bias": -3.6666666666666665
+          },
+          {
+            "method": "linear-trend",
+            "mae": 3.6666666666666665,
+            "bias": -3.6666666666666665
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 4.333333333333333,
+            "bias": -4.333333333333333
+          }
+        ]
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 10,
+          "presentationQuantity": 10
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 10,
+          "presentationQuantity": 10
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 10,
+          "presentationQuantity": 10
+        }
+      ]
+    },
+    {
+      "product": "DEMO Envases con tapa",
+      "presentation": "Paquete DEMO de 10",
+      "historyMonths": 36,
+      "method": "moving-average-3",
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 11,
+        "bias": -9,
+        "baselineMae": 43.333333333333336,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 43.333333333333336,
+            "bias": 16.666666666666668
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 11,
+            "bias": -9
+          },
+          {
+            "method": "linear-trend",
+            "mae": 15,
+            "bias": -3
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 63.333333333333336,
+            "bias": -63.333333333333336
+          }
+        ]
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 660,
+          "presentationQuantity": 66
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 660,
+          "presentationQuantity": 66
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 660,
+          "presentationQuantity": 66
+        }
+      ]
+    },
+    {
+      "product": "DEMO Cubiertos de madera",
+      "presentation": "Unidad DEMO",
+      "historyMonths": 3,
+      "method": "moving-average-3",
+      "evaluation": null,
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 19,
+          "presentationQuantity": 19
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 19,
+          "presentationQuantity": 19
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 19,
+          "presentationQuantity": 19
+        }
+      ]
+    },
+    {
+      "product": "DEMO Cubiertos de madera",
+      "presentation": "Paquete DEMO de 20",
+      "historyMonths": 3,
+      "method": "moving-average-3",
+      "evaluation": null,
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 260,
+          "presentationQuantity": 13
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 260,
+          "presentationQuantity": 13
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 260,
+          "presentationQuantity": 13
+        }
+      ]
+    }
+  ],
+  "downloads": [
+    "DATOS_SINTETICOS_DEMOSTRACION-stockfix-pronostico-2026-11-26-PRUEBA.csv",
+    "DATOS_SINTETICOS_DEMOSTRACION-stockfix-pronostico-2026-11-26-PRUEBA.xlsx"
+  ],
+  "insufficientHistoryStateVerified": true,
+  "readonlyOperationalRecords": true,
+  "mobileOverflow": false,
+  "pageErrors": []
+}

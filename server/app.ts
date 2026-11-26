@@ -15,6 +15,7 @@ import type { CashSession, Customer, DocumentLookupResult, Product, Purchase, Sa
 import { getPackagingStock, normalizePresentationCounts } from '../shared/stock-packaging';
 import { createDocumentLookup, DocumentLookupError, type DocumentLookupOptions } from './document-lookup';
 import { buildSummary, registerReports } from './reports';
+import { registerForecast } from './forecast/routes';
 import { registerUserManagement } from './user-management';
 import { prepareProductPackaging, registerStockUnpacking } from './stock-unpack';
 import * as schema from './schema';
@@ -212,6 +213,12 @@ export async function buildApp(options: AppOptions = {}) {
     loadSales: async () => (await db.select().from(schema.sales)).map(row => row.data),
     loadProducts: async () => (await db.select().from(schema.products)).map(row => row.data),
     loadMovements: async () => (await db.select().from(schema.stockMovements)).map(row => row.data),
+  });
+  registerForecast(app, {
+    requireAdmin,
+    loadSales: async () => (await db.select().from(schema.sales)).map(row => row.data),
+    loadProducts: async () => (await db.select().from(schema.products)).map(row => row.data),
+    loadManifest: async () => demoDataset,
   });
   app.get('/api/health', async () => ({ ok: true, mode: 'development', fiscalEnabled: false }));
   const settings: Settings = { businessName: 'StockFix Académico', ruc: '', address: 'Caso académico ficticio', taxStatus: 'pending', nubefactEnabled: false, mode: 'development' };

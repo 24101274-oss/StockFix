@@ -1,0 +1,2252 @@
+{
+  "version": 1,
+  "query": {
+    "cutoff": "2026-11-26",
+    "horizon": 3,
+    "location": "all"
+  },
+  "timeZone": "America/Lima",
+  "unit": "physical-items",
+  "source": {
+    "kind": "synthetic",
+    "label": "DATOS SINTÉTICOS DE DEMOSTRACIÓN",
+    "datasetId": "synthetic-v1-30e8fb46ab0e8c1e4b3fe7fa",
+    "observedThrough": "2026-11-26"
+  },
+  "methodology": "Solo se ajustan meses completos cubiertos, hasta 60. Desde 6 meses se comparan referencias mediante tres validaciones temporales de un paso. El mes parcial se muestra aparte y los horizontes comienzan después del mes del corte. MAE y sesgo se expresan en piezas físicas.",
+  "warnings": [
+    "Las ventas registradas pueden estar limitadas por faltantes de stock. El pronóstico describe ventas observadas y requiere revisar disponibilidad."
+  ],
+  "series": [
+    {
+      "id": "[\"demo-product-ab3e1ff44209c06f8480909e\",\"demo-bolsas-unidad\",\"all\"]",
+      "productId": "demo-product-ab3e1ff44209c06f8480909e",
+      "productName": "DEMO Bolsas claras",
+      "sku": "DEMO-BOLSAS",
+      "presentationId": "demo-bolsas-unidad",
+      "presentationLabel": "Unidad DEMO",
+      "unitsPerPresentation": 1,
+      "status": "ready",
+      "method": "seasonal-naive",
+      "history": [
+        {
+          "month": "2023-11",
+          "physicalUnits": 93
+        },
+        {
+          "month": "2023-12",
+          "physicalUnits": 54
+        },
+        {
+          "month": "2024-01",
+          "physicalUnits": 107
+        },
+        {
+          "month": "2024-02",
+          "physicalUnits": 82
+        },
+        {
+          "month": "2024-03",
+          "physicalUnits": 64
+        },
+        {
+          "month": "2024-04",
+          "physicalUnits": 60
+        },
+        {
+          "month": "2024-05",
+          "physicalUnits": 77
+        },
+        {
+          "month": "2024-06",
+          "physicalUnits": 120
+        },
+        {
+          "month": "2024-07",
+          "physicalUnits": 62
+        },
+        {
+          "month": "2024-08",
+          "physicalUnits": 74
+        },
+        {
+          "month": "2024-09",
+          "physicalUnits": 58
+        },
+        {
+          "month": "2024-10",
+          "physicalUnits": 47
+        },
+        {
+          "month": "2024-11",
+          "physicalUnits": 74
+        },
+        {
+          "month": "2024-12",
+          "physicalUnits": 75
+        },
+        {
+          "month": "2025-01",
+          "physicalUnits": 94
+        },
+        {
+          "month": "2025-02",
+          "physicalUnits": 120
+        },
+        {
+          "month": "2025-03",
+          "physicalUnits": 83
+        },
+        {
+          "month": "2025-04",
+          "physicalUnits": 108
+        },
+        {
+          "month": "2025-05",
+          "physicalUnits": 69
+        },
+        {
+          "month": "2025-06",
+          "physicalUnits": 69
+        },
+        {
+          "month": "2025-07",
+          "physicalUnits": 137
+        },
+        {
+          "month": "2025-08",
+          "physicalUnits": 40
+        },
+        {
+          "month": "2025-09",
+          "physicalUnits": 132
+        },
+        {
+          "month": "2025-10",
+          "physicalUnits": 16
+        },
+        {
+          "month": "2025-11",
+          "physicalUnits": 46
+        },
+        {
+          "month": "2025-12",
+          "physicalUnits": 69
+        },
+        {
+          "month": "2026-01",
+          "physicalUnits": 99
+        },
+        {
+          "month": "2026-02",
+          "physicalUnits": 180
+        },
+        {
+          "month": "2026-03",
+          "physicalUnits": 192
+        },
+        {
+          "month": "2026-04",
+          "physicalUnits": 19
+        },
+        {
+          "month": "2026-05",
+          "physicalUnits": 138
+        },
+        {
+          "month": "2026-06",
+          "physicalUnits": 146
+        },
+        {
+          "month": "2026-07",
+          "physicalUnits": 192
+        },
+        {
+          "month": "2026-08",
+          "physicalUnits": 66
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 180
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 68
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 87
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 69,
+          "presentationQuantity": 69
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 99,
+          "presentationQuantity": 99
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 180,
+          "presentationQuantity": 180
+        }
+      ],
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 42,
+        "bias": -42,
+        "baselineMae": 117.33333333333333,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 117.33333333333333,
+            "bias": 41.333333333333336
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 72,
+            "bias": 42
+          },
+          {
+            "method": "linear-trend",
+            "mae": 58.666666666666664,
+            "bias": 16
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 42,
+            "bias": -42
+          }
+        ]
+      },
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-ab3e1ff44209c06f8480909e\",\"demo-bolsas-paquete\",\"all\"]",
+      "productId": "demo-product-ab3e1ff44209c06f8480909e",
+      "productName": "DEMO Bolsas claras",
+      "sku": "DEMO-BOLSAS",
+      "presentationId": "demo-bolsas-paquete",
+      "presentationLabel": "Paquete DEMO de 100",
+      "unitsPerPresentation": 100,
+      "status": "ready",
+      "method": "linear-trend",
+      "history": [
+        {
+          "month": "2023-11",
+          "physicalUnits": 1100
+        },
+        {
+          "month": "2023-12",
+          "physicalUnits": 1300
+        },
+        {
+          "month": "2024-01",
+          "physicalUnits": 1200
+        },
+        {
+          "month": "2024-02",
+          "physicalUnits": 1300
+        },
+        {
+          "month": "2024-03",
+          "physicalUnits": 1300
+        },
+        {
+          "month": "2024-04",
+          "physicalUnits": 1400
+        },
+        {
+          "month": "2024-05",
+          "physicalUnits": 1300
+        },
+        {
+          "month": "2024-06",
+          "physicalUnits": 1200
+        },
+        {
+          "month": "2024-07",
+          "physicalUnits": 1300
+        },
+        {
+          "month": "2024-08",
+          "physicalUnits": 1400
+        },
+        {
+          "month": "2024-09",
+          "physicalUnits": 1400
+        },
+        {
+          "month": "2024-10",
+          "physicalUnits": 1400
+        },
+        {
+          "month": "2024-11",
+          "physicalUnits": 1500
+        },
+        {
+          "month": "2024-12",
+          "physicalUnits": 1400
+        },
+        {
+          "month": "2025-01",
+          "physicalUnits": 1500
+        },
+        {
+          "month": "2025-02",
+          "physicalUnits": 1400
+        },
+        {
+          "month": "2025-03",
+          "physicalUnits": 1500
+        },
+        {
+          "month": "2025-04",
+          "physicalUnits": 1600
+        },
+        {
+          "month": "2025-05",
+          "physicalUnits": 1600
+        },
+        {
+          "month": "2025-06",
+          "physicalUnits": 1700
+        },
+        {
+          "month": "2025-07",
+          "physicalUnits": 1400
+        },
+        {
+          "month": "2025-08",
+          "physicalUnits": 1700
+        },
+        {
+          "month": "2025-09",
+          "physicalUnits": 1500
+        },
+        {
+          "month": "2025-10",
+          "physicalUnits": 1700
+        },
+        {
+          "month": "2025-11",
+          "physicalUnits": 1700
+        },
+        {
+          "month": "2025-12",
+          "physicalUnits": 1700
+        },
+        {
+          "month": "2026-01",
+          "physicalUnits": 1900
+        },
+        {
+          "month": "2026-02",
+          "physicalUnits": 1800
+        },
+        {
+          "month": "2026-03",
+          "physicalUnits": 1800
+        },
+        {
+          "month": "2026-04",
+          "physicalUnits": 2000
+        },
+        {
+          "month": "2026-05",
+          "physicalUnits": 1800
+        },
+        {
+          "month": "2026-06",
+          "physicalUnits": 1800
+        },
+        {
+          "month": "2026-07",
+          "physicalUnits": 1800
+        },
+        {
+          "month": "2026-08",
+          "physicalUnits": 2000
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 1800
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 2100
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 1700
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 2002,
+          "presentationQuantity": 21
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 2024,
+          "presentationQuantity": 21
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 2047,
+          "presentationQuantity": 21
+        }
+      ],
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 131.33333333333334,
+        "bias": -42.666666666666664,
+        "baselineMae": 233.33333333333334,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 233.33333333333334,
+            "bias": -100
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 166.66666666666666,
+            "bias": -122
+          },
+          {
+            "method": "linear-trend",
+            "mae": 131.33333333333334,
+            "bias": -42.666666666666664
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 333.3333333333333,
+            "bias": -333.3333333333333
+          }
+        ]
+      },
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-22d23b8aa19730a2e10e27b6\",\"demo-vasos-unidad\",\"all\"]",
+      "productId": "demo-product-22d23b8aa19730a2e10e27b6",
+      "productName": "DEMO Vasos de papel",
+      "sku": "DEMO-VASOS",
+      "presentationId": "demo-vasos-unidad",
+      "presentationLabel": "Unidad DEMO",
+      "unitsPerPresentation": 1,
+      "status": "ready",
+      "method": "last-month",
+      "history": [
+        {
+          "month": "2023-11",
+          "physicalUnits": 12
+        },
+        {
+          "month": "2023-12",
+          "physicalUnits": 38
+        },
+        {
+          "month": "2024-01",
+          "physicalUnits": 40
+        },
+        {
+          "month": "2024-02",
+          "physicalUnits": 33
+        },
+        {
+          "month": "2024-03",
+          "physicalUnits": 39
+        },
+        {
+          "month": "2024-04",
+          "physicalUnits": 24
+        },
+        {
+          "month": "2024-05",
+          "physicalUnits": 39
+        },
+        {
+          "month": "2024-06",
+          "physicalUnits": 21
+        },
+        {
+          "month": "2024-07",
+          "physicalUnits": 14
+        },
+        {
+          "month": "2024-08",
+          "physicalUnits": 21
+        },
+        {
+          "month": "2024-09",
+          "physicalUnits": 27
+        },
+        {
+          "month": "2024-10",
+          "physicalUnits": 24
+        },
+        {
+          "month": "2024-11",
+          "physicalUnits": 18
+        },
+        {
+          "month": "2024-12",
+          "physicalUnits": 27
+        },
+        {
+          "month": "2025-01",
+          "physicalUnits": 31
+        },
+        {
+          "month": "2025-02",
+          "physicalUnits": 44
+        },
+        {
+          "month": "2025-03",
+          "physicalUnits": 32
+        },
+        {
+          "month": "2025-04",
+          "physicalUnits": 20
+        },
+        {
+          "month": "2025-05",
+          "physicalUnits": 1
+        },
+        {
+          "month": "2025-06",
+          "physicalUnits": 18
+        },
+        {
+          "month": "2025-07",
+          "physicalUnits": 36
+        },
+        {
+          "month": "2025-08",
+          "physicalUnits": 11
+        },
+        {
+          "month": "2025-09",
+          "physicalUnits": 22
+        },
+        {
+          "month": "2025-10",
+          "physicalUnits": 22
+        },
+        {
+          "month": "2025-11",
+          "physicalUnits": 17
+        },
+        {
+          "month": "2025-12",
+          "physicalUnits": 38
+        },
+        {
+          "month": "2026-01",
+          "physicalUnits": 18
+        },
+        {
+          "month": "2026-02",
+          "physicalUnits": 18
+        },
+        {
+          "month": "2026-03",
+          "physicalUnits": 23
+        },
+        {
+          "month": "2026-04",
+          "physicalUnits": 7
+        },
+        {
+          "month": "2026-05",
+          "physicalUnits": 5
+        },
+        {
+          "month": "2026-06",
+          "physicalUnits": 27
+        },
+        {
+          "month": "2026-07",
+          "physicalUnits": 25
+        },
+        {
+          "month": "2026-08",
+          "physicalUnits": 25
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 29
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 13
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 16
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 13,
+          "presentationQuantity": 13
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 13,
+          "presentationQuantity": 13
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 13,
+          "presentationQuantity": 13
+        }
+      ],
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 6.666666666666667,
+        "bias": 4,
+        "baselineMae": 6.666666666666667,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 6.666666666666667,
+            "bias": 4
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 7.333333333333333,
+            "bias": 1.3333333333333333
+          },
+          {
+            "method": "linear-trend",
+            "mae": 8.333333333333334,
+            "bias": -4.333333333333333
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 10,
+            "bias": -4
+          }
+        ]
+      },
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-22d23b8aa19730a2e10e27b6\",\"demo-vasos-paquete\",\"all\"]",
+      "productId": "demo-product-22d23b8aa19730a2e10e27b6",
+      "productName": "DEMO Vasos de papel",
+      "sku": "DEMO-VASOS",
+      "presentationId": "demo-vasos-paquete",
+      "presentationLabel": "Paquete DEMO de 25",
+      "unitsPerPresentation": 25,
+      "status": "ready",
+      "method": "linear-trend",
+      "history": [
+        {
+          "month": "2023-11",
+          "physicalUnits": 850
+        },
+        {
+          "month": "2023-12",
+          "physicalUnits": 1100
+        },
+        {
+          "month": "2024-01",
+          "physicalUnits": 525
+        },
+        {
+          "month": "2024-02",
+          "physicalUnits": 625
+        },
+        {
+          "month": "2024-03",
+          "physicalUnits": 700
+        },
+        {
+          "month": "2024-04",
+          "physicalUnits": 650
+        },
+        {
+          "month": "2024-05",
+          "physicalUnits": 675
+        },
+        {
+          "month": "2024-06",
+          "physicalUnits": 675
+        },
+        {
+          "month": "2024-07",
+          "physicalUnits": 850
+        },
+        {
+          "month": "2024-08",
+          "physicalUnits": 700
+        },
+        {
+          "month": "2024-09",
+          "physicalUnits": 650
+        },
+        {
+          "month": "2024-10",
+          "physicalUnits": 800
+        },
+        {
+          "month": "2024-11",
+          "physicalUnits": 925
+        },
+        {
+          "month": "2024-12",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2025-01",
+          "physicalUnits": 525
+        },
+        {
+          "month": "2025-02",
+          "physicalUnits": 525
+        },
+        {
+          "month": "2025-03",
+          "physicalUnits": 625
+        },
+        {
+          "month": "2025-04",
+          "physicalUnits": 650
+        },
+        {
+          "month": "2025-05",
+          "physicalUnits": 750
+        },
+        {
+          "month": "2025-06",
+          "physicalUnits": 775
+        },
+        {
+          "month": "2025-07",
+          "physicalUnits": 850
+        },
+        {
+          "month": "2025-08",
+          "physicalUnits": 850
+        },
+        {
+          "month": "2025-09",
+          "physicalUnits": 750
+        },
+        {
+          "month": "2025-10",
+          "physicalUnits": 775
+        },
+        {
+          "month": "2025-11",
+          "physicalUnits": 950
+        },
+        {
+          "month": "2025-12",
+          "physicalUnits": 1025
+        },
+        {
+          "month": "2026-01",
+          "physicalUnits": 525
+        },
+        {
+          "month": "2026-02",
+          "physicalUnits": 525
+        },
+        {
+          "month": "2026-03",
+          "physicalUnits": 725
+        },
+        {
+          "month": "2026-04",
+          "physicalUnits": 675
+        },
+        {
+          "month": "2026-05",
+          "physicalUnits": 750
+        },
+        {
+          "month": "2026-06",
+          "physicalUnits": 775
+        },
+        {
+          "month": "2026-07",
+          "physicalUnits": 875
+        },
+        {
+          "month": "2026-08",
+          "physicalUnits": 775
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 675
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 825
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 750
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 759,
+          "presentationQuantity": 31
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 759,
+          "presentationQuantity": 31
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 760,
+          "presentationQuantity": 31
+        }
+      ],
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 59.333333333333336,
+        "bias": -3.3333333333333335,
+        "baselineMae": 116.66666666666667,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 116.66666666666667,
+            "bias": 16.666666666666668
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 69.33333333333333,
+            "bias": 36
+          },
+          {
+            "method": "linear-trend",
+            "mae": 59.333333333333336,
+            "bias": -3.3333333333333335
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 66.66666666666667,
+            "bias": 33.333333333333336
+          }
+        ]
+      },
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-91ef84e5138771c23b269e84\",\"demo-platos-unidad\",\"all\"]",
+      "productId": "demo-product-91ef84e5138771c23b269e84",
+      "productName": "DEMO Platos de cartón",
+      "sku": "DEMO-PLATOS",
+      "presentationId": "demo-platos-unidad",
+      "presentationLabel": "Unidad DEMO",
+      "unitsPerPresentation": 1,
+      "status": "ready",
+      "method": "seasonal-naive",
+      "history": [
+        {
+          "month": "2023-11",
+          "physicalUnits": 2
+        },
+        {
+          "month": "2023-12",
+          "physicalUnits": 10
+        },
+        {
+          "month": "2024-01",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2024-02",
+          "physicalUnits": 10
+        },
+        {
+          "month": "2024-03",
+          "physicalUnits": 17
+        },
+        {
+          "month": "2024-04",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2024-05",
+          "physicalUnits": 16
+        },
+        {
+          "month": "2024-06",
+          "physicalUnits": 7
+        },
+        {
+          "month": "2024-07",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2024-08",
+          "physicalUnits": 5
+        },
+        {
+          "month": "2024-09",
+          "physicalUnits": 13
+        },
+        {
+          "month": "2024-10",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2024-11",
+          "physicalUnits": 8
+        },
+        {
+          "month": "2024-12",
+          "physicalUnits": 14
+        },
+        {
+          "month": "2025-01",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2025-02",
+          "physicalUnits": 13
+        },
+        {
+          "month": "2025-03",
+          "physicalUnits": 6
+        },
+        {
+          "month": "2025-04",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2025-05",
+          "physicalUnits": 9
+        },
+        {
+          "month": "2025-06",
+          "physicalUnits": 16
+        },
+        {
+          "month": "2025-07",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2025-08",
+          "physicalUnits": 16
+        },
+        {
+          "month": "2025-09",
+          "physicalUnits": 10
+        },
+        {
+          "month": "2025-10",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2025-11",
+          "physicalUnits": 11
+        },
+        {
+          "month": "2025-12",
+          "physicalUnits": 7
+        },
+        {
+          "month": "2026-01",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2026-02",
+          "physicalUnits": 10
+        },
+        {
+          "month": "2026-03",
+          "physicalUnits": 12
+        },
+        {
+          "month": "2026-04",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2026-05",
+          "physicalUnits": 5
+        },
+        {
+          "month": "2026-06",
+          "physicalUnits": 10
+        },
+        {
+          "month": "2026-07",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2026-08",
+          "physicalUnits": 8
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 11
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 0
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 15
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 7,
+          "presentationQuantity": 7
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 0,
+          "presentationQuantity": 0
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 10,
+          "presentationQuantity": 10
+        }
+      ],
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 3,
+        "bias": 2.3333333333333335,
+        "baselineMae": 7.333333333333333,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 7.333333333333333,
+            "bias": 0
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 4.666666666666667,
+            "bias": -0.6666666666666666
+          },
+          {
+            "method": "linear-trend",
+            "mae": 4.666666666666667,
+            "bias": 0
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 3,
+            "bias": 2.3333333333333335
+          }
+        ]
+      },
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-91ef84e5138771c23b269e84\",\"demo-platos-paquete\",\"all\"]",
+      "productId": "demo-product-91ef84e5138771c23b269e84",
+      "productName": "DEMO Platos de cartón",
+      "sku": "DEMO-PLATOS",
+      "presentationId": "demo-platos-paquete",
+      "presentationLabel": "Paquete DEMO de 12",
+      "unitsPerPresentation": 12,
+      "status": "ready",
+      "method": "seasonal-naive",
+      "history": [
+        {
+          "month": "2023-11",
+          "physicalUnits": 204
+        },
+        {
+          "month": "2023-12",
+          "physicalUnits": 216
+        },
+        {
+          "month": "2024-01",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2024-02",
+          "physicalUnits": 216
+        },
+        {
+          "month": "2024-03",
+          "physicalUnits": 204
+        },
+        {
+          "month": "2024-04",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2024-05",
+          "physicalUnits": 180
+        },
+        {
+          "month": "2024-06",
+          "physicalUnits": 216
+        },
+        {
+          "month": "2024-07",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2024-08",
+          "physicalUnits": 192
+        },
+        {
+          "month": "2024-09",
+          "physicalUnits": 192
+        },
+        {
+          "month": "2024-10",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2024-11",
+          "physicalUnits": 192
+        },
+        {
+          "month": "2024-12",
+          "physicalUnits": 216
+        },
+        {
+          "month": "2025-01",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2025-02",
+          "physicalUnits": 180
+        },
+        {
+          "month": "2025-03",
+          "physicalUnits": 204
+        },
+        {
+          "month": "2025-04",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2025-05",
+          "physicalUnits": 192
+        },
+        {
+          "month": "2025-06",
+          "physicalUnits": 180
+        },
+        {
+          "month": "2025-07",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2025-08",
+          "physicalUnits": 204
+        },
+        {
+          "month": "2025-09",
+          "physicalUnits": 180
+        },
+        {
+          "month": "2025-10",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2025-11",
+          "physicalUnits": 192
+        },
+        {
+          "month": "2025-12",
+          "physicalUnits": 216
+        },
+        {
+          "month": "2026-01",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2026-02",
+          "physicalUnits": 180
+        },
+        {
+          "month": "2026-03",
+          "physicalUnits": 204
+        },
+        {
+          "month": "2026-04",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2026-05",
+          "physicalUnits": 192
+        },
+        {
+          "month": "2026-06",
+          "physicalUnits": 192
+        },
+        {
+          "month": "2026-07",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2026-08",
+          "physicalUnits": 216
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 192
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 0
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 180
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 216,
+          "presentationQuantity": 18
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 0,
+          "presentationQuantity": 0
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 180,
+          "presentationQuantity": 15
+        }
+      ],
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 8,
+        "bias": -8,
+        "baselineMae": 144,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 144,
+            "bias": 0
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 93.33333333333333,
+            "bias": -2.6666666666666665
+          },
+          {
+            "method": "linear-trend",
+            "mae": 100.33333333333333,
+            "bias": -12.333333333333334
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 8,
+            "bias": -8
+          }
+        ]
+      },
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-f802a6edc5b608db48182048\",\"demo-servilletas-unidad\",\"all\"]",
+      "productId": "demo-product-f802a6edc5b608db48182048",
+      "productName": "DEMO Servilletas blancas",
+      "sku": "DEMO-SERVILLETAS",
+      "presentationId": "demo-servilletas-unidad",
+      "presentationLabel": "Unidad DEMO",
+      "unitsPerPresentation": 1,
+      "status": "ready",
+      "method": "linear-trend",
+      "history": [
+        {
+          "month": "2023-11",
+          "physicalUnits": 22
+        },
+        {
+          "month": "2023-12",
+          "physicalUnits": 62
+        },
+        {
+          "month": "2024-01",
+          "physicalUnits": 52
+        },
+        {
+          "month": "2024-02",
+          "physicalUnits": 66
+        },
+        {
+          "month": "2024-03",
+          "physicalUnits": 59
+        },
+        {
+          "month": "2024-04",
+          "physicalUnits": 3
+        },
+        {
+          "month": "2024-05",
+          "physicalUnits": 54
+        },
+        {
+          "month": "2024-06",
+          "physicalUnits": 48
+        },
+        {
+          "month": "2024-07",
+          "physicalUnits": 31
+        },
+        {
+          "month": "2024-08",
+          "physicalUnits": 47
+        },
+        {
+          "month": "2024-09",
+          "physicalUnits": 32
+        },
+        {
+          "month": "2024-10",
+          "physicalUnits": 49
+        },
+        {
+          "month": "2024-11",
+          "physicalUnits": 27
+        },
+        {
+          "month": "2024-12",
+          "physicalUnits": 86
+        },
+        {
+          "month": "2025-01",
+          "physicalUnits": 67
+        },
+        {
+          "month": "2025-02",
+          "physicalUnits": 63
+        },
+        {
+          "month": "2025-03",
+          "physicalUnits": 43
+        },
+        {
+          "month": "2025-04",
+          "physicalUnits": 58
+        },
+        {
+          "month": "2025-05",
+          "physicalUnits": 88
+        },
+        {
+          "month": "2025-06",
+          "physicalUnits": 37
+        },
+        {
+          "month": "2025-07",
+          "physicalUnits": 30
+        },
+        {
+          "month": "2025-08",
+          "physicalUnits": 61
+        },
+        {
+          "month": "2025-09",
+          "physicalUnits": 47
+        },
+        {
+          "month": "2025-10",
+          "physicalUnits": 73
+        },
+        {
+          "month": "2025-11",
+          "physicalUnits": 53
+        },
+        {
+          "month": "2025-12",
+          "physicalUnits": 21
+        },
+        {
+          "month": "2026-01",
+          "physicalUnits": 86
+        },
+        {
+          "month": "2026-02",
+          "physicalUnits": 6
+        },
+        {
+          "month": "2026-03",
+          "physicalUnits": 60
+        },
+        {
+          "month": "2026-04",
+          "physicalUnits": 92
+        },
+        {
+          "month": "2026-05",
+          "physicalUnits": 1
+        },
+        {
+          "month": "2026-06",
+          "physicalUnits": 45
+        },
+        {
+          "month": "2026-07",
+          "physicalUnits": 24
+        },
+        {
+          "month": "2026-08",
+          "physicalUnits": 92
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 72
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 37
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 48
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 54,
+          "presentationQuantity": 54
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 54,
+          "presentationQuantity": 54
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 54,
+          "presentationQuantity": 54
+        }
+      ],
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 27,
+        "bias": -15,
+        "baselineMae": 41,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 41,
+            "bias": -4.333333333333333
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 37.666666666666664,
+            "bias": -20.333333333333332
+          },
+          {
+            "method": "linear-trend",
+            "mae": 27,
+            "bias": -15
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 30.666666666666668,
+            "bias": -6.666666666666667
+          }
+        ]
+      },
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-f802a6edc5b608db48182048\",\"demo-servilletas-paquete\",\"all\"]",
+      "productId": "demo-product-f802a6edc5b608db48182048",
+      "productName": "DEMO Servilletas blancas",
+      "sku": "DEMO-SERVILLETAS",
+      "presentationId": "demo-servilletas-paquete",
+      "presentationLabel": "Paquete DEMO de 50",
+      "unitsPerPresentation": 50,
+      "status": "ready",
+      "method": "moving-average-3",
+      "history": [
+        {
+          "month": "2023-11",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2023-12",
+          "physicalUnits": 900
+        },
+        {
+          "month": "2024-01",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2024-02",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2024-03",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2024-04",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2024-05",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2024-06",
+          "physicalUnits": 950
+        },
+        {
+          "month": "2024-07",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2024-08",
+          "physicalUnits": 950
+        },
+        {
+          "month": "2024-09",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2024-10",
+          "physicalUnits": 1100
+        },
+        {
+          "month": "2024-11",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2024-12",
+          "physicalUnits": 900
+        },
+        {
+          "month": "2025-01",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2025-02",
+          "physicalUnits": 900
+        },
+        {
+          "month": "2025-03",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2025-04",
+          "physicalUnits": 900
+        },
+        {
+          "month": "2025-05",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2025-06",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2025-07",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2025-08",
+          "physicalUnits": 900
+        },
+        {
+          "month": "2025-09",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2025-10",
+          "physicalUnits": 900
+        },
+        {
+          "month": "2025-11",
+          "physicalUnits": 900
+        },
+        {
+          "month": "2025-12",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2026-01",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2026-02",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2026-03",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2026-04",
+          "physicalUnits": 900
+        },
+        {
+          "month": "2026-05",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2026-06",
+          "physicalUnits": 1100
+        },
+        {
+          "month": "2026-07",
+          "physicalUnits": 1000
+        },
+        {
+          "month": "2026-08",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 1050
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 1000
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 950
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 1033,
+          "presentationQuantity": 21
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 1033,
+          "presentationQuantity": 21
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 1033,
+          "presentationQuantity": 21
+        }
+      ],
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 16.666666666666668,
+        "bias": 5.333333333333333,
+        "baselineMae": 33.333333333333336,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 33.333333333333336,
+            "bias": 0
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 16.666666666666668,
+            "bias": 5.333333333333333
+          },
+          {
+            "method": "linear-trend",
+            "mae": 38,
+            "bias": -34.666666666666664
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 83.33333333333333,
+            "bias": -83.33333333333333
+          }
+        ]
+      },
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-a49dac2f5676244d2a21ff21\",\"demo-envases-unidad\",\"all\"]",
+      "productId": "demo-product-a49dac2f5676244d2a21ff21",
+      "productName": "DEMO Envases con tapa",
+      "sku": "DEMO-ENVASES",
+      "presentationId": "demo-envases-unidad",
+      "presentationLabel": "Unidad DEMO",
+      "unitsPerPresentation": 1,
+      "status": "ready",
+      "method": "last-month",
+      "history": [
+        {
+          "month": "2023-11",
+          "physicalUnits": 17
+        },
+        {
+          "month": "2023-12",
+          "physicalUnits": 14
+        },
+        {
+          "month": "2024-01",
+          "physicalUnits": 0
+        },
+        {
+          "month": "2024-02",
+          "physicalUnits": 3
+        },
+        {
+          "month": "2024-03",
+          "physicalUnits": 14
+        },
+        {
+          "month": "2024-04",
+          "physicalUnits": 11
+        },
+        {
+          "month": "2024-05",
+          "physicalUnits": 13
+        },
+        {
+          "month": "2024-06",
+          "physicalUnits": 7
+        },
+        {
+          "month": "2024-07",
+          "physicalUnits": 8
+        },
+        {
+          "month": "2024-08",
+          "physicalUnits": 10
+        },
+        {
+          "month": "2024-09",
+          "physicalUnits": 12
+        },
+        {
+          "month": "2024-10",
+          "physicalUnits": 8
+        },
+        {
+          "month": "2024-11",
+          "physicalUnits": 5
+        },
+        {
+          "month": "2024-12",
+          "physicalUnits": 13
+        },
+        {
+          "month": "2025-01",
+          "physicalUnits": 11
+        },
+        {
+          "month": "2025-02",
+          "physicalUnits": 9
+        },
+        {
+          "month": "2025-03",
+          "physicalUnits": 9
+        },
+        {
+          "month": "2025-04",
+          "physicalUnits": 5
+        },
+        {
+          "month": "2025-05",
+          "physicalUnits": 11
+        },
+        {
+          "month": "2025-06",
+          "physicalUnits": 15
+        },
+        {
+          "month": "2025-07",
+          "physicalUnits": 8
+        },
+        {
+          "month": "2025-08",
+          "physicalUnits": 6
+        },
+        {
+          "month": "2025-09",
+          "physicalUnits": 10
+        },
+        {
+          "month": "2025-10",
+          "physicalUnits": 1
+        },
+        {
+          "month": "2025-11",
+          "physicalUnits": 8
+        },
+        {
+          "month": "2025-12",
+          "physicalUnits": 3
+        },
+        {
+          "month": "2026-01",
+          "physicalUnits": 13
+        },
+        {
+          "month": "2026-02",
+          "physicalUnits": 11
+        },
+        {
+          "month": "2026-03",
+          "physicalUnits": 2
+        },
+        {
+          "month": "2026-04",
+          "physicalUnits": 8
+        },
+        {
+          "month": "2026-05",
+          "physicalUnits": 1
+        },
+        {
+          "month": "2026-06",
+          "physicalUnits": 11
+        },
+        {
+          "month": "2026-07",
+          "physicalUnits": 2
+        },
+        {
+          "month": "2026-08",
+          "physicalUnits": 9
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 11
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 10
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 11
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 10,
+          "presentationQuantity": 10
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 10,
+          "presentationQuantity": 10
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 10,
+          "presentationQuantity": 10
+        }
+      ],
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 3.3333333333333335,
+        "bias": -2.6666666666666665,
+        "baselineMae": 3.3333333333333335,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 3.3333333333333335,
+            "bias": -2.6666666666666665
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 3.6666666666666665,
+            "bias": -3.6666666666666665
+          },
+          {
+            "method": "linear-trend",
+            "mae": 3.6666666666666665,
+            "bias": -3.6666666666666665
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 4.333333333333333,
+            "bias": -4.333333333333333
+          }
+        ]
+      },
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-a49dac2f5676244d2a21ff21\",\"demo-envases-paquete\",\"all\"]",
+      "productId": "demo-product-a49dac2f5676244d2a21ff21",
+      "productName": "DEMO Envases con tapa",
+      "sku": "DEMO-ENVASES",
+      "presentationId": "demo-envases-paquete",
+      "presentationLabel": "Paquete DEMO de 10",
+      "unitsPerPresentation": 10,
+      "status": "ready",
+      "method": "moving-average-3",
+      "history": [
+        {
+          "month": "2023-11",
+          "physicalUnits": 510
+        },
+        {
+          "month": "2023-12",
+          "physicalUnits": 570
+        },
+        {
+          "month": "2024-01",
+          "physicalUnits": 330
+        },
+        {
+          "month": "2024-02",
+          "physicalUnits": 330
+        },
+        {
+          "month": "2024-03",
+          "physicalUnits": 380
+        },
+        {
+          "month": "2024-04",
+          "physicalUnits": 370
+        },
+        {
+          "month": "2024-05",
+          "physicalUnits": 440
+        },
+        {
+          "month": "2024-06",
+          "physicalUnits": 410
+        },
+        {
+          "month": "2024-07",
+          "physicalUnits": 480
+        },
+        {
+          "month": "2024-08",
+          "physicalUnits": 450
+        },
+        {
+          "month": "2024-09",
+          "physicalUnits": 430
+        },
+        {
+          "month": "2024-10",
+          "physicalUnits": 550
+        },
+        {
+          "month": "2024-11",
+          "physicalUnits": 540
+        },
+        {
+          "month": "2024-12",
+          "physicalUnits": 670
+        },
+        {
+          "month": "2025-01",
+          "physicalUnits": 400
+        },
+        {
+          "month": "2025-02",
+          "physicalUnits": 360
+        },
+        {
+          "month": "2025-03",
+          "physicalUnits": 430
+        },
+        {
+          "month": "2025-04",
+          "physicalUnits": 470
+        },
+        {
+          "month": "2025-05",
+          "physicalUnits": 550
+        },
+        {
+          "month": "2025-06",
+          "physicalUnits": 480
+        },
+        {
+          "month": "2025-07",
+          "physicalUnits": 600
+        },
+        {
+          "month": "2025-08",
+          "physicalUnits": 600
+        },
+        {
+          "month": "2025-09",
+          "physicalUnits": 560
+        },
+        {
+          "month": "2025-10",
+          "physicalUnits": 630
+        },
+        {
+          "month": "2025-11",
+          "physicalUnits": 740
+        },
+        {
+          "month": "2025-12",
+          "physicalUnits": 930
+        },
+        {
+          "month": "2026-01",
+          "physicalUnits": 400
+        },
+        {
+          "month": "2026-02",
+          "physicalUnits": 480
+        },
+        {
+          "month": "2026-03",
+          "physicalUnits": 600
+        },
+        {
+          "month": "2026-04",
+          "physicalUnits": 560
+        },
+        {
+          "month": "2026-05",
+          "physicalUnits": 630
+        },
+        {
+          "month": "2026-06",
+          "physicalUnits": 540
+        },
+        {
+          "month": "2026-07",
+          "physicalUnits": 730
+        },
+        {
+          "month": "2026-08",
+          "physicalUnits": 660
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 640
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 680
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 650
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 660,
+          "presentationQuantity": 66
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 660,
+          "presentationQuantity": 66
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 660,
+          "presentationQuantity": 66
+        }
+      ],
+      "evaluation": {
+        "kind": "rolling-one-step",
+        "months": [
+          "2026-08",
+          "2026-09",
+          "2026-10"
+        ],
+        "folds": 3,
+        "mae": 11,
+        "bias": -9,
+        "baselineMae": 43.333333333333336,
+        "candidates": [
+          {
+            "method": "last-month",
+            "mae": 43.333333333333336,
+            "bias": 16.666666666666668
+          },
+          {
+            "method": "moving-average-3",
+            "mae": 11,
+            "bias": -9
+          },
+          {
+            "method": "linear-trend",
+            "mae": 15,
+            "bias": -3
+          },
+          {
+            "method": "seasonal-naive",
+            "mae": 63.333333333333336,
+            "bias": -63.333333333333336
+          }
+        ]
+      },
+      "warnings": []
+    },
+    {
+      "id": "[\"demo-product-a05e1eba3492e65488edbec9\",\"demo-cubiertos-unidad\",\"all\"]",
+      "productId": "demo-product-a05e1eba3492e65488edbec9",
+      "productName": "DEMO Cubiertos de madera",
+      "sku": "DEMO-CUBIERTOS",
+      "presentationId": "demo-cubiertos-unidad",
+      "presentationLabel": "Unidad DEMO",
+      "unitsPerPresentation": 1,
+      "status": "ready",
+      "method": "moving-average-3",
+      "history": [
+        {
+          "month": "2026-08",
+          "physicalUnits": 25
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 22
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 10
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 26
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 19,
+          "presentationQuantity": 19
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 19,
+          "presentationQuantity": 19
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 19,
+          "presentationQuantity": 19
+        }
+      ],
+      "evaluation": null,
+      "warnings": [
+        "Hay entre 3 y 5 meses completos. Se usa el promedio de 3 meses sin evaluación temporal."
+      ]
+    },
+    {
+      "id": "[\"demo-product-a05e1eba3492e65488edbec9\",\"demo-cubiertos-paquete\",\"all\"]",
+      "productId": "demo-product-a05e1eba3492e65488edbec9",
+      "productName": "DEMO Cubiertos de madera",
+      "sku": "DEMO-CUBIERTOS",
+      "presentationId": "demo-cubiertos-paquete",
+      "presentationLabel": "Paquete DEMO de 20",
+      "unitsPerPresentation": 20,
+      "status": "ready",
+      "method": "moving-average-3",
+      "history": [
+        {
+          "month": "2026-08",
+          "physicalUnits": 260
+        },
+        {
+          "month": "2026-09",
+          "physicalUnits": 240
+        },
+        {
+          "month": "2026-10",
+          "physicalUnits": 280
+        }
+      ],
+      "partial": {
+        "month": "2026-11",
+        "physicalUnits": 200
+      },
+      "forecast": [
+        {
+          "month": "2026-12",
+          "physicalUnits": 260,
+          "presentationQuantity": 13
+        },
+        {
+          "month": "2027-01",
+          "physicalUnits": 260,
+          "presentationQuantity": 13
+        },
+        {
+          "month": "2027-02",
+          "physicalUnits": 260,
+          "presentationQuantity": 13
+        }
+      ],
+      "evaluation": null,
+      "warnings": [
+        "Hay entre 3 y 5 meses completos. Se usa el promedio de 3 meses sin evaluación temporal."
+      ]
+    }
+  ]
+}
