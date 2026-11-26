@@ -7,7 +7,7 @@ const nonempty = z.string().trim().min(1).max(200);
 export const locationSchema = z.enum(['puesto', 'almacen']);
 export const paymentSchema = z.enum(['efectivo', 'yape', 'plin', 'transferencia']);
 export const loginSchema = z.object({ email: z.email().max(200), password: z.string().min(1).max(200) }).strict();
-export const presentationSchema = z.object({ id: nonempty, label: nonempty, units: quantity, priceCents: cents }).strict();
+export const presentationSchema = z.object({ id: nonempty, label: nonempty, units: quantity, priceCents: cents.min(1, 'El precio de venta debe ser mayor que cero.') }).strict();
 export const productSchema = z.object({
   name: nonempty, brand: z.string().trim().max(100), category: nonempty,
   barcode: z.string().trim().max(200).nullable(), active: z.boolean(),

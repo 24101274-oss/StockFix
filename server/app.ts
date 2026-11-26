@@ -415,6 +415,9 @@ export async function buildApp(options: AppOptions = {}) {
         const product = changed.get(line.productId) ?? await getProduct(tx, line.productId);
         const presentation = product.presentations.find(x => x.id === line.presentationId);
         if (!product.active || !presentation) fail('El producto o su presentación no está habilitado.');
+        // Existing databases may contain prices saved before product validation
+        // required a positive amount. Reject the sale until an admin corrects it.
+        if (!Number.isSafeInteger(presentation.priceCents) || presentation.priceCents <= 0 || presentation.priceCents > MAX_CENTS) fail(`Corrige el precio de ${product.name}: debe ser mayor que cero y estar dentro del límite permitido.`, 409);
         const units = safeNumber(presentation.units * line.quantity, 1_000_000_000);
         const current = product.stock[line.location];
         if (current === null) fail(`Completa el conteo de ${product.name} en ${line.location} antes de vender.`, 409);
