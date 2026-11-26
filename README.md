@@ -66,7 +66,17 @@ El destino predeterminado es `data/forecast-demo`, separado de `data/demo-db`. E
 
 El manifiesto conserva origen, versión, semilla, fecha de corte en America/Lima, cobertura por producto, conteos y hash del conjunto generado. Una observación cero después de la introducción del producto se diferencia del periodo anterior en que no se observaba. El mes parcial está identificado para que el modelo posterior no lo interprete como un mes completo.
 
-Este bloque prepara los datos y su trazabilidad. El cálculo del pronóstico y las recomendaciones de reposición se desarrollan en DDS-11 y DDS-12. Ver `docs/DDS-10_HISTORICO_SINTETICO.md` para los criterios y la verificación.
+Este bloque prepara los datos y su trazabilidad. Ver `docs/DDS-10_HISTORICO_SINTETICO.md` para los criterios y la verificación.
+
+## Predicción mensual (HU10 / DDS-11)
+
+Como administrador, abrir **Predicción mensual**, seleccionar fecha de corte, horizonte, ubicación y producto, y pulsar **Calcular pronóstico**. La gráfica separa meses completos, mes parcial y estimación futura; la tabla muestra piezas y su equivalente redondeado en presentaciones actuales. Los filtros aplicados se conservan al exportar CSV o Excel.
+
+Se utilizan métodos estadísticos explicables: último mes, promedio de tres meses, tendencia lineal y, con historia suficiente, mismo mes del año anterior. Desde seis meses completos se comparan mediante tres cortes temporales de un paso, sin usar datos futuros. Se informa MAE y sesgo en piezas; entre tres y cinco meses se utiliza promedio sin afirmar evaluación suficiente. Con menos de tres meses se informa historial insuficiente.
+
+El módulo consulta ventas registradas y excluye anulaciones. No cambia stock, caja ni compras. Los ceros se incluyen únicamente dentro de la cobertura observada; las ventas pueden subestimar demanda cuando faltó stock. El error sobre datos sintéticos demuestra el recorrido académico y no garantiza resultados comerciales. El cálculo local no necesita claves ni servicios de IA externos.
+
+Ver [manual, metodología y evidencia](docs/DDS-11_PRONOSTICO_MENSUAL.md). Las recomendaciones de reposición se incorporan en DDS-12.
 
 ## Procedencia y límites
 

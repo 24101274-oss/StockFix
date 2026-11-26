@@ -46,7 +46,7 @@ function reportFilename(header: string | null, endpoint: string, format: ReportF
 }
 
 export async function downloadReport(endpoint: string, params: Record<string, string> | undefined, format: ReportFormat, signal?: AbortSignal): Promise<void> {
-  if (!/^\/reports\/[a-z-]+\/export$/.test(endpoint)) throw new Error('No se reconoce este reporte.');
+  if (endpoint !== '/forecast/export' && !/^\/reports\/[a-z-]+\/export$/.test(endpoint)) throw new Error('No se reconoce este reporte.');
   const query = new URLSearchParams(params);
   query.set('format', format);
   const controller = new AbortController();
