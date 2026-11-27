@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
 import ExcelJS from 'exceljs';
 import Fastify, { type FastifyInstance } from 'fastify';
-import type { Product, Sale, StockMovement, Summary, User } from '../../shared/types';
-import { buildApp } from '../app';
-import { buildSummary, csvCell, filterInventory, filterSales, filterStockMovements, inventoryExportSchema, limaDate, registerReports, salesExportSchema, stockExportSchema } from '../reports';
+import type { Product, Sale, StockMovement, Summary, User } from '../../shared/types.js';
+import { buildApp } from '../app.js';
+import { buildSummary, csvCell, filterInventory, filterSales, filterStockMovements, inventoryExportSchema, limaDate, registerReports, salesExportSchema, stockExportSchema } from '../reports.js';
 
 const baseProduct: Product = { id: 'bolsas', sku: 'P-001', name: 'Bolsas PRUEBA', brand: 'ALFA', category: 'Bolsas', barcode: null, active: true, stock: { puesto: 1000, almacen: null }, minStockUnits: 1000, presentations: [{ id: 'paq', label: 'Paquete de 100', units: 100, priceCents: 250 }], sourceNotes: [] };
 const products: Product[] = [baseProduct,

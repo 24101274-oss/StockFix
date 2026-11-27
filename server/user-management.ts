@@ -3,9 +3,9 @@ import { and, eq } from 'drizzle-orm';
 import type { PgliteDatabase } from 'drizzle-orm/pglite';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import type { User } from '../shared/types';
-import type { ManagedUser, UserManagementResult } from '../shared/users';
-import * as schema from './schema';
+import type { User } from '../shared/types.js';
+import type { ManagedUser, UserManagementResult } from '../shared/users.js';
+import * as schema from './schema.js';
 
 type UsersDb = PgliteDatabase<typeof schema>;
 type UsersTx = Parameters<Parameters<UsersDb['transaction']>[0]>[0];

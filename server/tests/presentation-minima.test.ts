@@ -1,10 +1,10 @@
 import { after, before, test } from 'node:test';
 import assert from 'node:assert/strict';
 import type { FastifyInstance } from 'fastify';
-import type { PresentationMinimum, Product, Summary } from '../../shared/types';
-import { getLowStockAlerts, getPresentationMinimum, isLowStock, matchesInventory } from '../../shared/inventory';
-import { buildApp } from '../app';
-import { buildSummary } from '../reports';
+import type { PresentationMinimum, Product, Summary } from '../../shared/types.js';
+import { getLowStockAlerts, getPresentationMinimum, isLowStock, matchesInventory } from '../../shared/inventory.js';
+import { buildApp } from '../app.js';
+import { buildSummary } from '../reports.js';
 
 const minima: PresentationMinimum[] = [{ presentationId: 'paquete', minimum: 30 }, { presentationId: 'fardo', minimum: 2 }, { presentationId: null, minimum: 0 }];
 const product: Product = { id: 'minimos', sku: 'P-MIN', name: 'Bolsas con mínimos', brand: 'ALFA', category: 'Bolsas', barcode: 'COD-MIN', active: true,

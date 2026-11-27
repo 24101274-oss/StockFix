@@ -3,9 +3,9 @@ import { eq } from 'drizzle-orm';
 import type { PgliteDatabase } from 'drizzle-orm/pglite';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import type { LocationId, Presentation, Product, User } from '../shared/types';
-import { getPackagingStock, normalizePresentationCounts } from '../shared/stock-packaging';
-import * as schema from './schema';
+import type { LocationId, Presentation, Product, User } from '../shared/types.js';
+import { getPackagingStock, normalizePresentationCounts } from '../shared/stock-packaging.js';
+import * as schema from './schema.js';
 
 type Db = PgliteDatabase<typeof schema>;
 type Tx = Parameters<Parameters<Db['transaction']>[0]>[0];

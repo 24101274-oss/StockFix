@@ -2,8 +2,8 @@ import { after, before, test } from 'node:test';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
 import type { FastifyInstance } from 'fastify';
-import type { Product, StockMovement } from '../../shared/types';
-import { buildApp } from '../app';
+import type { Product, StockMovement } from '../../shared/types.js';
+import { buildApp } from '../app.js';
 
 const product = (id: string, presentations = [
   { id: 'paquete', label: 'Paquete de 100', units: 100, priceCents: 250 },

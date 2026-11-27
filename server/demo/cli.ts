@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import type { SyntheticOptions } from '../../shared/demo-dataset';
-import { loadSyntheticDemo } from './store';
+import type { SyntheticOptions } from '../../shared/demo-dataset.js';
+import { loadSyntheticDemo } from './store.js';
 
 export function parseDemoSeedArgs(args: string[]): { dataDir: string; options: SyntheticOptions } {
   const flags = new Map<string, string>();

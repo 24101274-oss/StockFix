@@ -5,8 +5,8 @@ import { mkdir, mkdtemp, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { dirname, join, resolve, sep } from 'node:path';
 import type { FastifyInstance } from 'fastify';
-import type { Product, Sale } from '../../shared/types';
-import { buildApp } from '../app';
+import type { Product, Sale } from '../../shared/types.js';
+import { buildApp } from '../app.js';
 
 const seed: Product[] = [
   { id: 'bolsas', sku: 'P-001', name: 'Bolsas de prueba', brand: 'ALFA', category: 'Bolsas', barcode: null, active: true, stock: { puesto: null, almacen: null }, presentations: [{ id: 'paq', label: 'Paquete de 100', units: 100, priceCents: 250 }], sourceNotes: [] },

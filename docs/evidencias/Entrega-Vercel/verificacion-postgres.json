@@ -1,0 +1,13 @@
+{
+  "verifiedAt": "2026-11-27T00:23:22.919Z",
+  "database": "Neon PostgreSQL",
+  "isolatedSchema": true,
+  "sessionsAcrossInstances": true,
+  "concurrentSaleStatuses": [
+    200,
+    409
+  ],
+  "finalStock": 0,
+  "sales": 1,
+  "productionDatasetUntouched": true
+}

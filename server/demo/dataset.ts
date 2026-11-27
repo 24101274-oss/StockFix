@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
-import { SYNTHETIC_DATA_LABEL, type SyntheticDataset, type SyntheticOptions } from '../../shared/demo-dataset';
-import type { CashSession, LocationId, PaymentMethod, PresentationCount, Product, Purchase, PurchaseInput, Sale, SaleInput, StockMovement, Supplier } from '../../shared/types';
+import { SYNTHETIC_DATA_LABEL, type SyntheticDataset, type SyntheticOptions } from '../../shared/demo-dataset.js';
+import type { CashSession, LocationId, PaymentMethod, PresentationCount, Product, Purchase, PurchaseInput, Sale, SaleInput, StockMovement, Supplier } from '../../shared/types.js';
 
 const LOCATIONS: LocationId[] = ['puesto', 'almacen'];
 const PAYMENT_METHODS: PaymentMethod[] = ['efectivo', 'yape', 'plin', 'transferencia'];

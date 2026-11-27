@@ -6,12 +6,12 @@ import { existsSync } from 'node:fs';
 import { basename, dirname, join, resolve, sep } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
-import type { Product, Sale } from '../../shared/types';
-import type { SyntheticOptions } from '../../shared/demo-dataset';
-import { generateSyntheticDataset } from '../demo/dataset';
-import { loadSyntheticDemo } from '../demo/store';
-import { parseDemoSeedArgs } from '../demo/cli';
-import { buildApp } from '../app';
+import type { Product, Sale } from '../../shared/types.js';
+import type { SyntheticOptions } from '../../shared/demo-dataset.js';
+import { generateSyntheticDataset } from '../demo/dataset.js';
+import { loadSyntheticDemo } from '../demo/store.js';
+import { parseDemoSeedArgs } from '../demo/cli.js';
+import { buildApp } from '../app.js';
 
 const options: SyntheticOptions = { seed: 'store-test-2026', asOfDate: '2026-11-26', months: 24 };
 let temporary: string;

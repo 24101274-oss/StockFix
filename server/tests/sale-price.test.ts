@@ -6,9 +6,9 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { PGlite } from '@electric-sql/pglite';
 import type { FastifyInstance } from 'fastify';
-import type { Product, Sale } from '../../shared/types';
-import { buildApp } from '../app';
-import { closeCashSchema, MAX_CENTS, openCashSchema, productSchema, purchaseSchema } from '../validation';
+import type { Product, Sale } from '../../shared/types.js';
+import { buildApp } from '../app.js';
+import { closeCashSchema, MAX_CENTS, openCashSchema, productSchema, purchaseSchema } from '../validation.js';
 
 const input = (priceCents: number) => ({
   name: 'Producto de regresión DDS-9', brand: '', category: 'Prueba', barcode: null, active: true,

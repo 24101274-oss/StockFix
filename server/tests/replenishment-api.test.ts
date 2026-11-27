@@ -7,12 +7,12 @@ import { basename, dirname, join, resolve } from 'node:path';
 import Fastify, { type FastifyInstance } from 'fastify';
 import ExcelJS from 'exceljs';
 import { z } from 'zod';
-import type { Product } from '../../shared/types';
-import type { ReplenishmentReport, ReplenishmentScenario, ScenarioReceipt } from '../../shared/replenishment';
-import { buildApp } from '../app';
-import { loadSyntheticDemo } from '../demo/store';
-import { limaDate } from '../reports';
-import { registerReplenishment } from '../replenishment/routes';
+import type { Product } from '../../shared/types.js';
+import type { ReplenishmentReport, ReplenishmentScenario, ScenarioReceipt } from '../../shared/replenishment.js';
+import { buildApp } from '../app.js';
+import { loadSyntheticDemo } from '../demo/store.js';
+import { limaDate } from '../reports.js';
+import { registerReplenishment } from '../replenishment/routes.js';
 
 let app: FastifyInstance;
 let folder: string;

@@ -1,8 +1,8 @@
 import { after, before, test } from 'node:test';
 import assert from 'node:assert/strict';
 import type { FastifyInstance } from 'fastify';
-import { buildApp } from '../app';
-import { createDocumentLookup, DocumentLookupError, type LookupFetch } from '../document-lookup';
+import { buildApp } from '../app.js';
+import { createDocumentLookup, DocumentLookupError, type LookupFetch } from '../document-lookup.js';
 
 const TOKEN = 'mock-token-never-valid-outside-tests';
 const jsonResponse = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });

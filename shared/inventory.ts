@@ -1,5 +1,5 @@
 import type { LocationId, Product, StockPresentationAlert } from './types';
-import { getPackagingStock } from './stock-packaging';
+import { getPackagingStock } from './stock-packaging.js';
 
 export type InventoryStatus = 'all' | 'pending' | 'zero' | 'ready' | 'low' | 'inactive';
 export interface InventoryFilter { query?: string; location?: LocationId; status?: InventoryStatus }

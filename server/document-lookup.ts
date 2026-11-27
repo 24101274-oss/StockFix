@@ -1,5 +1,5 @@
-import type { DocumentLookupResult, DocumentLookupStatus } from '../shared/types';
-import { isValidRuc } from './validation';
+import type { DocumentLookupResult, DocumentLookupStatus } from '../shared/types.js';
+import { isValidRuc } from './validation.js';
 
 type LookupType = DocumentLookupResult['documentType'];
 type ExternalResult = Omit<DocumentLookupResult, 'customer'>;

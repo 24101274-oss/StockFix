@@ -1,10 +1,10 @@
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import type { SyntheticManifest } from '../../shared/demo-dataset';
-import { FORECAST_METHOD_LABELS, type ForecastQuery, type ForecastReport, type ForecastSeries } from '../../shared/forecast';
-import type { Product, Sale, User } from '../../shared/types';
-import { csvBuffer, limaDate, workbookBuffer } from '../reports';
-import { buildForecast } from './engine';
+import type { SyntheticManifest } from '../../shared/demo-dataset.js';
+import { FORECAST_METHOD_LABELS, type ForecastQuery, type ForecastReport, type ForecastSeries } from '../../shared/forecast.js';
+import type { Product, Sale, User } from '../../shared/types.js';
+import { csvBuffer, limaDate, workbookBuffer } from '../reports.js';
+import { buildForecast } from './engine.js';
 
 export interface ForecastDependencies {
   requireAdmin: (request: FastifyRequest) => Promise<User>;

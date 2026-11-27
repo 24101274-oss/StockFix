@@ -1,8 +1,6 @@
 import Fastify, { type FastifyRequest, type FastifyReply } from 'fastify';
 import cookie from '@fastify/cookie';
-import staticPlugin from '@fastify/static';
-import { PGlite } from '@electric-sql/pglite';
-import { drizzle } from 'drizzle-orm/pglite';
+import { openDatabase, STOCKFIX_WRITE_LOCK } from './database.js';
 import { and, eq, gt, lt, sql } from 'drizzle-orm';
 import { createHash, randomBytes, randomUUID, scrypt as scryptCallback, timingSafeEqual } from 'node:crypto';
 import { promisify } from 'node:util';
@@ -11,16 +9,16 @@ import { mkdir, readFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
-import type { CashSession, Customer, DocumentLookupResult, Product, Purchase, Sale, SaleItem, Settings, StockMovement, User } from '../shared/types';
-import { getPackagingStock, normalizePresentationCounts } from '../shared/stock-packaging';
-import { createDocumentLookup, DocumentLookupError, type DocumentLookupOptions } from './document-lookup';
-import { buildSummary, registerReports } from './reports';
-import { registerForecast } from './forecast/routes';
-import { registerReplenishment } from './replenishment/routes';
-import { registerUserManagement } from './user-management';
-import { prepareProductPackaging, registerStockUnpacking } from './stock-unpack';
-import * as schema from './schema';
-import { adjustSchema, cashMovementSchema, closeCashSchema, customerSchema, isValidRuc, loginSchema, MAX_CENTS, openCashSchema, productSchema, purchaseSchema, saleSchema, supplierSchema, transferSchema } from './validation';
+import type { CashSession, Customer, DocumentLookupResult, Product, Purchase, Sale, SaleItem, Settings, StockMovement, User } from '../shared/types.js';
+import { getPackagingStock, normalizePresentationCounts } from '../shared/stock-packaging.js';
+import { createDocumentLookup, DocumentLookupError, type DocumentLookupOptions } from './document-lookup.js';
+import { buildSummary, registerReports } from './reports.js';
+import { registerForecast } from './forecast/routes.js';
+import { registerReplenishment } from './replenishment/routes.js';
+import { registerUserManagement } from './user-management.js';
+import { prepareProductPackaging, registerStockUnpacking } from './stock-unpack.js';
+import * as schema from './schema.js';
+import { adjustSchema, cashMovementSchema, closeCashSchema, customerSchema, isValidRuc, loginSchema, MAX_CENTS, openCashSchema, productSchema, purchaseSchema, saleSchema, supplierSchema, transferSchema } from './validation.js';
 
 const scrypt = promisify(scryptCallback);
 const SESSION_HOURS = 12;
@@ -47,7 +45,7 @@ async function verifyPassword(password: string, hash: string) {
 function publicUser(row: typeof schema.users.$inferSelect): User { return { id: row.id, name: row.name, email: row.email, role: row.role, active: row.active }; }
 
 export interface AppOptions {
-  dataDir?: string; seed?: Product[] | false; adminPassword?: string; cashierPassword?: string;
+  dataDir?: string; databaseUrl?: string; seed?: Product[] | false; adminPassword?: string; cashierPassword?: string;
   allowedOrigins?: string[]; production?: boolean; serveStatic?: boolean;
   lookup?: DocumentLookupOptions;
 }
@@ -65,37 +63,40 @@ export async function buildApp(options: AppOptions = {}) {
   // PGlite creates its own directory, but its filesystem adapter requires the
   // parent to exist. URI-backed and in-memory databases must not create folders.
   if (localDataDir) await mkdir(dirname(resolve(options.dataDir!)), { recursive: true });
-  const pglite = new PGlite(options.dataDir);
-  await pglite.waitReady;
-  await pglite.exec(schema.initialSchema);
-  const db = drizzle(pglite, { schema });
-  // A production restart invalidates earlier cookies, including demonstration
-  // sessions created before credentials were changed for deployment.
-  if (production) await db.delete(schema.sessions);
+  const database = await openDatabase({ dataDir: options.dataDir, databaseUrl: options.databaseUrl });
+  const db = database.db;
+  // A local production switch revokes demonstration cookies. Remote sessions
+  // persist across function instances; credential migration revokes affected accounts below.
+  if (production && !database.remote) await db.delete(schema.sessions);
   type Tx = Parameters<Parameters<typeof db.transaction>[0]>[0];
-  // PGlite has one connection. Serializing a complete business operation prevents
-  // interleaved read/write operations from consuming the same stock or open register.
+  // Serialize the complete operation locally; PostgreSQL also takes a shared
+  // transaction lock so distinct function instances cannot consume the same stock.
   let writeTail: Promise<unknown> = Promise.resolve();
   function atomic<T>(action: (tx: Tx) => Promise<T>): Promise<T> {
-    const run = writeTail.then(() => db.transaction(action));
+    const run = writeTail.then(() => db.transaction(async tx => {
+      if (database.remote) await tx.execute(sql`SELECT pg_advisory_xact_lock(${STOCKFIX_WRITE_LOCK})`);
+      return action(tx);
+    }));
     writeTail = run.catch(() => undefined);
     return run;
   }
-  const initializeAccounts = !(await db.select({ id: schema.users.id }).from(schema.users).limit(1)).length;
+  await atomic(async tx => {
+  const initializeAccounts = !(await tx.select({ id: schema.users.id }).from(schema.users).limit(1)).length;
   for (const account of [
     { email: 'admin@stockfix.local', name: 'Administradora', role: 'admin' as const, password: adminPassword },
     { email: 'cajero@stockfix.local', name: 'Cajero', role: 'cashier' as const, password: cashierPassword },
   ]) {
-    const [existing] = await db.select().from(schema.users).where(eq(schema.users.email, account.email)).limit(1);
+    const [existing] = await tx.select().from(schema.users).where(eq(schema.users.email, account.email)).limit(1);
     if (!existing && initializeAccounts) {
-      await db.insert(schema.users).values({ id: randomUUID(), name: account.name, email: account.email, role: account.role, passwordHash: await hashPassword(account.password) });
+      await tx.insert(schema.users).values({ id: randomUUID(), name: account.name, email: account.email, role: account.role, passwordHash: await hashPassword(account.password) });
     } else if (existing && account.password !== defaultPasswords[account.role] && await verifyPassword(defaultPasswords[account.role], existing.passwordHash)) {
       // Allow the initial deployment to replace public demo credentials. Later
       // restarts must preserve passwords changed through account management.
-      await db.update(schema.users).set({ passwordHash: await hashPassword(account.password) }).where(eq(schema.users.id, existing.id));
-      await db.delete(schema.sessions).where(eq(schema.sessions.userId, existing.id));
+      await tx.update(schema.users).set({ passwordHash: await hashPassword(account.password) }).where(eq(schema.users.id, existing.id));
+      await tx.delete(schema.sessions).where(eq(schema.sessions.userId, existing.id));
     }
   }
+  });
   if (!(await db.select({ id: schema.products.id }).from(schema.products).limit(1)).length && options.seed !== false) {
     let seed = options.seed;
     if (!seed) {
@@ -118,7 +119,7 @@ export async function buildApp(options: AppOptions = {}) {
   const demoDataset = datasetRecord?.data ?? null;
   const documentLookup = createDocumentLookup(options.lookup);
   await app.register(cookie);
-  app.addHook('onClose', async () => { await writeTail; await pglite.close(); });
+  app.addHook('onClose', async () => { await writeTail; await database.close(); });
   app.addHook('onSend', async (request, reply, payload) => {
     if (demoDataset && request.url.startsWith('/api/')) {
       reply.header('X-StockFix-Data-Origin', 'synthetic');
@@ -572,6 +573,7 @@ export async function buildApp(options: AppOptions = {}) {
     return buildSummary(allSales, allProducts, cashOpen);
   });
   if (options.serveStatic && existsSync(resolve('dist'))) {
+    const { default: staticPlugin } = await import('@fastify/static');
     await app.register(staticPlugin, { root: resolve('dist'), prefix: '/' });
     app.setNotFoundHandler(async (request, reply: FastifyReply) => {
       if (request.url.startsWith('/api/') || !request.headers.accept?.includes('text/html')) return reply.code(404).send({ message: 'Ruta no encontrada.' });

@@ -4,9 +4,9 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, mkdtemp, rm } from 'node:fs/promises';
 import { join, resolve, sep } from 'node:path';
 import type { FastifyInstance } from 'fastify';
-import type { Presentation, Product, StockMovement } from '../../shared/types';
-import { countStockUnits, getPackagingStock } from '../../shared/stock-packaging';
-import { buildApp } from '../app';
+import type { Presentation, Product, StockMovement } from '../../shared/types.js';
+import { countStockUnits, getPackagingStock } from '../../shared/stock-packaging.js';
+import { buildApp } from '../app.js';
 
 const presentations: Presentation[] = [
   { id: 'fardo', label: 'Fardo de 50 paquetes', units: 5000, priceCents: 11000 },

@@ -1,10 +1,10 @@
 import ExcelJS from 'exceljs';
 import type { FastifyInstance, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import type { LocationId, Product, Sale, StockMovement, Summary, User } from '../shared/types';
-import { getLowStockAlerts, getPresentationMinimum, matchesInventory } from '../shared/inventory';
-import { getPackagingStock } from '../shared/stock-packaging';
-import { locationSchema, paymentSchema } from './validation';
+import type { LocationId, Product, Sale, StockMovement, Summary, User } from '../shared/types.js';
+import { getLowStockAlerts, getPresentationMinimum, matchesInventory } from '../shared/inventory.js';
+import { getPackagingStock } from '../shared/stock-packaging.js';
+import { locationSchema, paymentSchema } from './validation.js';
 
 const timezone = 'America/Lima';
 const dateFormatter = new Intl.DateTimeFormat('en-CA', { timeZone: timezone, year: 'numeric', month: '2-digit', day: '2-digit' });

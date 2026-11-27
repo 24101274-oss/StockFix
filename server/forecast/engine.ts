@@ -1,6 +1,6 @@
-import type { ForecastCandidate, ForecastEvaluation, ForecastHistoryPoint, ForecastInput, ForecastMethod, ForecastReport, ForecastSeries } from '../../shared/forecast';
-import type { Product } from '../../shared/types';
-import { limaDate } from '../reports';
+import type { ForecastCandidate, ForecastEvaluation, ForecastHistoryPoint, ForecastInput, ForecastMethod, ForecastReport, ForecastSeries } from '../../shared/forecast.js';
+import type { Product } from '../../shared/types.js';
+import { limaDate } from '../reports.js';
 
 const STOCK_WARNING = 'Las ventas registradas pueden estar limitadas por faltantes de stock. El pronóstico describe ventas observadas y requiere revisar disponibilidad.';
 const RECORDING_WARNING = 'Se infiere la cobertura desde la primera venta y se supone un registro continuo posterior. Los meses sin ventas se consideran cero dentro de ese intervalo.';

@@ -1,6 +1,6 @@
 import { resolve } from 'node:path';
 import { existsSync } from 'node:fs';
-import { buildApp } from './app';
+import { buildApp } from './app.js';
 
 if (existsSync('.env')) process.loadEnvFile('.env');
 const app = await buildApp({

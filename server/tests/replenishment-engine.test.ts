@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { buildReplenishment } from '../replenishment/engine';
-import type { ForecastReport, ForecastSeries } from '../../shared/forecast';
-import type { ReplenishmentInput, ScenarioReceipt } from '../../shared/replenishment';
-import type { LocationId, Product } from '../../shared/types';
+import { buildReplenishment } from '../replenishment/engine.js';
+import type { ForecastReport, ForecastSeries } from '../../shared/forecast.js';
+import type { ReplenishmentInput, ScenarioReceipt } from '../../shared/replenishment.js';
+import type { LocationId, Product } from '../../shared/types.js';
 
 function monthAt(value: number): string {
   return `${Math.floor(value / 12)}-${String(value % 12 + 1).padStart(2, '0')}`;

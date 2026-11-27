@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { buildForecast } from '../forecast/engine';
-import type { ForecastInput, ForecastQuery } from '../../shared/forecast';
-import { SYNTHETIC_DATA_LABEL, type SyntheticManifest } from '../../shared/demo-dataset';
-import type { Product, Sale, SaleItem } from '../../shared/types';
+import { buildForecast } from '../forecast/engine.js';
+import type { ForecastInput, ForecastQuery } from '../../shared/forecast.js';
+import { SYNTHETIC_DATA_LABEL, type SyntheticManifest } from '../../shared/demo-dataset.js';
+import type { Product, Sale, SaleItem } from '../../shared/types.js';
 
 function product(units = 1): Product {
   return { id: 'product', sku: 'DEMO-1', name: 'Producto DEMO', category: 'Prueba', brand: 'DEMO', barcode: null, active: true,

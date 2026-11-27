@@ -7,12 +7,12 @@ import { basename, dirname, join, resolve } from 'node:path';
 import Fastify, { type FastifyInstance } from 'fastify';
 import ExcelJS from 'exceljs';
 import { z } from 'zod';
-import type { ForecastReport } from '../../shared/forecast';
-import type { Product } from '../../shared/types';
-import { buildApp } from '../app';
-import { loadSyntheticDemo } from '../demo/store';
-import { limaDate } from '../reports';
-import { registerForecast } from '../forecast/routes';
+import type { ForecastReport } from '../../shared/forecast.js';
+import type { Product } from '../../shared/types.js';
+import { buildApp } from '../app.js';
+import { loadSyntheticDemo } from '../demo/store.js';
+import { limaDate } from '../reports.js';
+import { registerForecast } from '../forecast/routes.js';
 
 let app: FastifyInstance;
 let folder: string;
