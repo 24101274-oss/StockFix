@@ -5,9 +5,9 @@ import { tmpdir } from 'node:os';
 import { basename, dirname, join, resolve } from 'node:path';
 import ExcelJS from 'exceljs';
 import type { FastifyInstance } from 'fastify';
-import { buildApp } from '../app';
-import { loadSyntheticDemo } from '../demo/store';
-import { SYNTHETIC_DATA_LABEL } from '../../shared/demo-dataset';
+import { buildApp } from '../app.js';
+import { loadSyntheticDemo } from '../demo/store.js';
+import { SYNTHETIC_DATA_LABEL } from '../../shared/demo-dataset.js';
 
 let ordinary: FastifyInstance;
 let synthetic: FastifyInstance;

@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import type { Presentation, PresentationCount, Product } from '../../shared/types';
-import { countStockUnits, getPackagingStock, normalizePresentationCounts, quantityInPresentation } from '../../shared/stock-packaging';
+import type { Presentation, PresentationCount, Product } from '../../shared/types.js';
+import { countStockUnits, getPackagingStock, normalizePresentationCounts, quantityInPresentation } from '../../shared/stock-packaging.js';
 
 const presentations: Presentation[] = [
   { id: 'package', label: 'Paquete de 100', units: 100, priceCents: 250 },

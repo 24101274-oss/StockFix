@@ -1,12 +1,12 @@
 import { createHash } from 'node:crypto';
 import type { FastifyInstance } from 'fastify';
 import { z } from 'zod';
-import type { Product } from '../../shared/types';
-import type { ReplenishmentReport, ReplenishmentScenario } from '../../shared/replenishment';
-import type { ForecastDependencies } from '../forecast/routes';
-import { buildForecast } from '../forecast/engine';
-import { csvBuffer, limaDate, workbookBuffer } from '../reports';
-import { buildReplenishment } from './engine';
+import type { Product } from '../../shared/types.js';
+import type { ReplenishmentReport, ReplenishmentScenario } from '../../shared/replenishment.js';
+import type { ForecastDependencies } from '../forecast/routes.js';
+import { buildForecast } from '../forecast/engine.js';
+import { csvBuffer, limaDate, workbookBuffer } from '../reports.js';
+import { buildReplenishment } from './engine.js';
 
 export type ReplenishmentDependencies = ForecastDependencies;
 

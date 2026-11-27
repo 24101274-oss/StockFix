@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { mkdir, mkdtemp, rm } from 'node:fs/promises';
 import { join, resolve, sep } from 'node:path';
 import type { FastifyInstance } from 'fastify';
-import type { ManagedUser, UserManagementResult } from '../../shared/users';
-import { buildApp } from '../app';
+import type { ManagedUser, UserManagementResult } from '../../shared/users.js';
+import { buildApp } from '../app.js';
 
 const initialPassword = 'PruebaUsuario2026!';
 let app: FastifyInstance;

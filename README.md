@@ -86,8 +86,14 @@ En **Ajustar escenario** se declaran cantidades pendientes por recibir, sus fech
 
 Los CSV/Excel usan el cálculo aplicado. Si cambia el stock o el resultado antes de descargar, se exige recalcular. Los supuestos duran solo mientras permanezcas en la página. Ver [reglas, manual y evidencias](docs/DDS-12_REPOSICION_MENSUAL.md).
 
-## Procedencia y límites
+## Acceso publicado en Vercel
+
+**https://stockfix-24101274.vercel.app**
+
+El entorno publicado usa Neon PostgreSQL persistente y accesos privados. La ejecución local mantiene PGlite y sus accesos académicos del apartado anterior. Se comprobaron ingreso, roles, predicción, reposición y exportaciones en la URL pública. Ver [arquitectura, inicialización y evidencias del despliegue](docs/DESPLIEGUE_VERCEL.md).
+
+## Procedencia y límites de la entrega
 
 Ver `PROCEDENCIA.md` y `../evidencias/procedencia.json`. El proyecto original no incluía un archivo LICENSE ni un campo license para el código propio; no se ha inventado una licencia. Las dependencias conservan sus licencias dentro de `node_modules` y se identifican en `package-lock.json`.
 
-Esta entrega cubre un caso local académico de inventario y ventas. La integración tributaria, impresión directa en hardware, alojamiento productivo y costos reales pertenecen a trabajo posterior. No se presenta la planificación del equipo como ceremonias o actividades ya realizadas.
+Esta entrega cubre inventario y ventas académicos, con predicción y reposición mensual y una demostración publicada en Vercel. La integración tributaria, impresión directa en hardware y validación con operaciones comerciales reales corresponden a trabajo posterior. DDS-13 a DDS-16 permanecen pendientes conforme al alcance de esta entrega.

@@ -1,0 +1,20 @@
+{
+  "verifiedAt": "2026-11-27T00:35:04.202Z",
+  "url": "https://stockfix-24101274.vercel.app",
+  "browser": "158.0.4370.33",
+  "frontendAndAPI": true,
+  "privateAdminLogin": true,
+  "publicDemoPasswordButtons": false,
+  "syntheticProducts": 6,
+  "syntheticSales": 368,
+  "forecastSeries": 12,
+  "evaluatedSeries": 10,
+  "replenishmentItems": 12,
+  "downloads": [
+    "DATOS_SINTETICOS_DEMOSTRACION-stockfix-reposicion-2026-11-26-PRUEBA.csv",
+    "DATOS_SINTETICOS_DEMOSTRACION-stockfix-reposicion-2026-11-26-PRUEBA.xlsx"
+  ],
+  "cashierPlanningDenied": true,
+  "operationalRecordsUnchanged": true,
+  "pageErrors": []
+}

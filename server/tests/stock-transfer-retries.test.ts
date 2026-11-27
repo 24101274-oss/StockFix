@@ -4,8 +4,8 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, mkdtemp, rm } from 'node:fs/promises';
 import { join, resolve, sep } from 'node:path';
 import type { FastifyInstance, LightMyRequestResponse } from 'fastify';
-import type { Product, StockMovement } from '../../shared/types';
-import { buildApp } from '../app';
+import type { Product, StockMovement } from '../../shared/types.js';
+import { buildApp } from '../app.js';
 
 const product = (id: string): Product => ({ id, sku: id, name: `Traslado ${id}`, brand: '', category: 'Bolsas', barcode: null, active: true,
   stock: { puesto: null, almacen: null }, presentations: [

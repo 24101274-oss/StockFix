@@ -1,7 +1,7 @@
 import { sql } from 'drizzle-orm';
 import { bigint, boolean, integer, jsonb, pgTable, primaryKey, text, uniqueIndex } from 'drizzle-orm/pg-core';
-import type { CashSession, Customer, Product, Purchase, Sale, StockMovement, Supplier, Role } from '../shared/types';
-import type { SyntheticManifest } from '../shared/demo-dataset';
+import type { CashSession, Customer, Product, Purchase, Sale, StockMovement, Supplier, Role } from '../shared/types.js';
+import type { SyntheticManifest } from '../shared/demo-dataset.js';
 
 export const users = pgTable('users', {
   id: text('id').primaryKey(), name: text('name').notNull(), email: text('email').notNull().unique(),

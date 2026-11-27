@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { test } from 'node:test';
-import { generateSyntheticDataset, syntheticOperationalHash } from '../demo/dataset';
-import { SYNTHETIC_DATA_LABEL, type SyntheticDataset } from '../../shared/demo-dataset';
-import { countStockUnits } from '../../shared/stock-packaging';
-import { productSchema, purchaseSchema, saleSchema, supplierSchema } from '../validation';
-import type { LocationId } from '../../shared/types';
+import { generateSyntheticDataset, syntheticOperationalHash } from '../demo/dataset.js';
+import { SYNTHETIC_DATA_LABEL, type SyntheticDataset } from '../../shared/demo-dataset.js';
+import { countStockUnits } from '../../shared/stock-packaging.js';
+import { productSchema, purchaseSchema, saleSchema, supplierSchema } from '../validation.js';
+import type { LocationId } from '../../shared/types.js';
 
 const options = { seed: 'stockfix-dds-10', asOfDate: '2026-11-26', months: 36 };
 const dataset = generateSyntheticDataset(options);

@@ -1,7 +1,7 @@
-import type { ForecastSeries } from '../../shared/forecast';
-import type { BridgeDemand, PlanningQuantity, ReceiptDisposition, ReplenishmentInput, ReplenishmentItem, ReplenishmentMonth, ReplenishmentPlan, ScenarioReceipt } from '../../shared/replenishment';
-import type { LocationId, Product } from '../../shared/types';
-import { getPackagingStock } from '../../shared/stock-packaging';
+import type { ForecastSeries } from '../../shared/forecast.js';
+import type { BridgeDemand, PlanningQuantity, ReceiptDisposition, ReplenishmentInput, ReplenishmentItem, ReplenishmentMonth, ReplenishmentPlan, ScenarioReceipt } from '../../shared/replenishment.js';
+import type { LocationId, Product } from '../../shared/types.js';
+import { getPackagingStock } from '../../shared/stock-packaging.js';
 
 const MAX_QUANTITY = 1_000_000_000;
 const LOCATIONS: LocationId[] = ['puesto', 'almacen'];

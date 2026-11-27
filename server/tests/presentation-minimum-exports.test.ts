@@ -2,8 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import ExcelJS from 'exceljs';
 import Fastify from 'fastify';
-import type { Product } from '../../shared/types';
-import { buildSummary, registerReports } from '../reports';
+import type { Product } from '../../shared/types.js';
+import { buildSummary, registerReports } from '../reports.js';
 
 const physical: Product = {
   id: 'bags', sku: 'PR-001', name: 'Bolsas PRUEBA', brand: '', category: 'Bolsas', barcode: null, active: true,

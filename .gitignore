@@ -3,5 +3,10 @@ dist/
 data/
 tmp/
 .env
+.env.*
+!.env.example
+.vercel/
 *.log
 test-results/
+
+.env*

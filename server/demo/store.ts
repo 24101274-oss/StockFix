@@ -4,9 +4,9 @@ import type { FileHandle } from 'node:fs/promises';
 import { dirname, isAbsolute, parse, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isDeepStrictEqual } from 'node:util';
-import type { SyntheticDataset, SyntheticLoadResult, SyntheticManifest, SyntheticOptions } from '../../shared/demo-dataset';
-import { initialSchema } from '../schema';
-import { generateSyntheticDataset, syntheticOperationalHash } from './dataset';
+import type { SyntheticDataset, SyntheticLoadResult, SyntheticManifest, SyntheticOptions } from '../../shared/demo-dataset.js';
+import { initialSchema } from '../schema.js';
+import { generateSyntheticDataset, syntheticOperationalHash } from './dataset.js';
 
 const appRoot = fileURLToPath(new URL('../../', import.meta.url));
 const markerSuffix = '.stockfix-synthetic.json';
